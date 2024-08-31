@@ -7,11 +7,19 @@
 
 import SwiftUI
 
+
+
 @main
 struct Advanced_iOS_AT2App: App {
+    
+    @StateObject var navigationController = NavigationController()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                HomeView()
+            }
         }
+        .environmentObject(navigationController)
     }
 }
