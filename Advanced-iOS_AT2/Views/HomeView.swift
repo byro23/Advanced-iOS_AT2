@@ -14,7 +14,7 @@ struct HomeView: View {
                 Text("Hello, user!")
                     .font(.title2)
                     .fontWeight(.semibold)
-                    .foregroundColor(.primary)
+                    //.foregroundColor(.primary)
                 Spacer()
                 
                 Image(systemName: "person.circle")
@@ -32,11 +32,17 @@ struct HomeView: View {
             .padding()
             
             HStack {
+                Text("Your summary:")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                Spacer()
                 
             }
-            
-            
             .padding()
+            
+            HStack {
+                PieChartView(data: Category.Mock_Categories)
+            }
             
             Spacer()
             
