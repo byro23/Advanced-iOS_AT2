@@ -1,8 +1,8 @@
 //
 //  NavigationController.swift
-//  bankApp
+//  Advanced-iOS_AT2
 //
-//  Created by Byron Lester on 9/5/2024.
+//  Created by Byron Lester on 2/9/2024.
 //
 
 import Foundation
@@ -27,3 +27,4 @@ class NavigationController: ObservableObject {
     @Published var path = NavigationPath()
     @Published var currentTab = Tab.home
 }
+

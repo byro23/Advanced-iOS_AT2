@@ -1,8 +1,8 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  Advanced-iOS_AT2
 //
-//  Created by Byron Lester on 31/8/2024.
+//  Created by Byron Lester on 2/9/2024.
 //
 
 import SwiftUI
@@ -19,10 +19,23 @@ struct HomeView: View {
                 
                 Image(systemName: "person.circle")
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 35, height: 35)
+                    .foregroundColor(.blue)
+                    .padding(.horizontal)
+                
+                Image(systemName: "bell")
+                    .resizable()
+                    .frame(width: 35, height: 35)
                     .foregroundColor(.blue)
                 
             }
+            .padding()
+            
+            HStack {
+                
+            }
+            
+            
             .padding()
             
             Spacer()
