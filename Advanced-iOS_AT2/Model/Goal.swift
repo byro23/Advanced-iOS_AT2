@@ -10,7 +10,7 @@ import Foundation
 
 struct Goal: Identifiable, Codable, Hashable {
         
-    var id = UUID().uuidString
+    let id : String
     var name: String
     var description: String
     var goalAmount: Decimal // Converted to string when sent to db.
