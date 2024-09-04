@@ -7,6 +7,12 @@
 
 import Foundation
 
-class LoginViewModel: ObservableObject {
-    @Published var isLoginButtonTapped = false
+class LoginViewModel: ObservableObject, Form {
+    
+    @Published var email: String = ""
+    @Published var password: String = ""
+    
+    func formIsValid(email: String, password: String) -> Bool {
+        return email.contains("@") && password.count > 5
+    }
 }

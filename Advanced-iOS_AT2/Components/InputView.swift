@@ -21,9 +21,14 @@ struct InputView: View {
                 .padding(.leading)
             if(isSecuredField) {
                 SecureField(placeholder, text: $text)
+                    .background(Color.white)
+                    .textFieldStyle(.roundedBorder)
+                
             }
             else {
                 TextField(placeholder, text: $text)
+                    .background(Color.white)
+                    .textFieldStyle(.roundedBorder)
             }
         }
         .padding()

@@ -34,7 +34,7 @@ struct Advanced_iOS_AT2App: App {
             NavigationStack {
                 ZStack {
                     backgroundColor
-                        .edgesIgnoringSafeArea(.all)
+                        .ignoresSafeArea()
                     HomeView()
                 }
                 

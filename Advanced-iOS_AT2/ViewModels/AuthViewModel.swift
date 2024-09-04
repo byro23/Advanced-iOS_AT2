@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol Form {
+    func formIsValid(email: String, password: String) -> Bool
+}
+
 class AuthViewModel: ObservableObject {
     @Published var isLoggedIn: Bool = false
 }
