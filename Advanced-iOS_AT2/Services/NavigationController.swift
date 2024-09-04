@@ -11,8 +11,8 @@ import SwiftUI
 class NavigationController: ObservableObject {
     
     enum AppScreen: Hashable {
-        case login
-        case dashboard
+        case landing
+        case register
         case pay
         case deposit
         case transfer

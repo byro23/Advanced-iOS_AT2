@@ -2,17 +2,17 @@
 //  LoginView.swift
 //  Advanced-iOS_AT2
 //
-//  Created by Byron Lester on 2/9/2024.
+//  Created by Byron Lester on 4/9/2024.
 //
 
+import Foundation
 import SwiftUI
 
-struct LoginView: View {
+struct LoginView : View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 24) {
+            
+        }
     }
-}
-
-#Preview {
-    LoginView()
 }

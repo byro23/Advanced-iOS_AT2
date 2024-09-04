@@ -23,14 +23,24 @@ struct Advanced_iOS_AT2App: App {
     
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     @StateObject var navigationController = NavigationController()
+    @StateObject var authViewModel = AuthViewModel()
+    
+    let backgroundColor: Color = Color(red: 240/255, green: 255/255, blue: 255/255)
     
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                HomeView()
+                ZStack {
+                    backgroundColor
+                        .edgesIgnoringSafeArea(.all)
+                    HomeView()
+                }
+                
             }
         }
         .environmentObject(navigationController)
+        .environmentObject(authViewModel)
     }
 }

@@ -11,6 +11,8 @@ struct User: Identifiable, Codable {
     let id: String
     var name: String
     var email: String
+    //var expenses: Decimal
+    //var income: Decimal
     
 }
 

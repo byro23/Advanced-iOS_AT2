@@ -32,6 +32,16 @@ struct HomeView: View {
             .padding()
             
             HStack {
+                Text("Income:")
+                    .padding(.horizontal)
+                Text("Expenses: ")
+                    .padding(.horizontal)
+            }
+            .padding()
+            
+            // Maybe expense/income here?
+            
+            HStack {
                 Text("Your summary:")
                     .font(.title2)
                     .fontWeight(.semibold)

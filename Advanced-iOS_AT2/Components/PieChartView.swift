@@ -12,24 +12,35 @@ struct PieChartView: View {
     var data: [Category]
     
     var body: some View {
-        HStack {
-            Chart(data, id: \.id) { item in
-                SectorMark(
-                    angle: .value("Value", item.amount),
-                    angularInset: 0.5
-                )
-                .foregroundStyle(by: .value("Category", item.name))
-            }
-            .frame(width: 200, height: 200)
-        .chartLegend(.hidden)
-            
-            VStack {
-                ForEach(data) { item in
-                    HStack {
-                        
+        
+        if(data.count != 0) {
+            HStack {
+                Chart(data, id: \.id) { item in
+                    SectorMark(
+                        angle: .value("Value", item.amount),
+                        angularInset: 0.5
+                    )
+                    .foregroundStyle(by: .value("Category", item.name))
+                }
+                .frame(width: 200, height: 200)
+                .chartLegend(.hidden)
+                
+                VStack(alignment: .leading) {
+                    ForEach(data) { item in
+                        HStack(alignment: .center) {
+                            Circle()
+                                .fill(.blue)
+                                .frame(width: 10, height: 10)
+                            Text(item.name)
+                                .font(.caption)
+                        }
                     }
                 }
+                .padding(.leading)
             }
+        }
+        else {
+            Text("No data to show.")
         }
     }
 }
