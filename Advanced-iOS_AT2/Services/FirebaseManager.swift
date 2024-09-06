@@ -22,21 +22,28 @@ class FirebaseManager {
     }
     
     
-    func createUser(email: String, password: String, name: String) async {
+    func createUser(email: String, password: String, name: String) async throws -> Bool {
         
         do {
             let emailQuerySnapshot = try await Firestore.firestore().collection("Users").whereField("email", isEqualTo: email).getDocuments()
             
             if(!emailQuerySnapshot.isEmpty) {
-                let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
-                let user = User(id: authResult.user.uid, name: name, email: email, goals: [], expenses: 0, income: 0)
-                let encodedUser = try Firestore.Encoder().encode(user)
-                
-                try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+                print("Email already exists")
+                return false
             }
-        }
-        catch {
             
+            
+            let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
+            let user = User(id: authResult.user.uid, name: name, email: email, goals: [], expenses: 0, income: 0)
+            let encodedUser = try Firestore.Encoder().encode(user)
+            
+            try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+            return true
+        }
+        
+        catch {
+            print("Failed to create user")
+            return false
         }
         
     }

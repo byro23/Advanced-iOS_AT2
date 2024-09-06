@@ -14,6 +14,7 @@
 		C141D1992C8A78E90081F796 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D1982C8A78E90081F796 /* Utils.swift */; };
 		C141D19B2C8A985F0081F796 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D19A2C8A985F0081F796 /* RegistrationView.swift */; };
 		C141D19D2C8A9E350081F796 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D19C2C8A9E350081F796 /* RegistrationViewModel.swift */; };
+		C141D19F2C8ADD8E0081F796 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D19E2C8ADD8E0081F796 /* TabView.swift */; };
 		C19E5DD02C856F7600320C1F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DCF2C856F7600320C1F /* HomeView.swift */; };
 		C19E5DD22C856FAE00320C1F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD12C856FAE00320C1F /* NavigationController.swift */; };
 		C19E5DD42C856FC600320C1F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD32C856FC600320C1F /* CardView.swift */; };
@@ -51,6 +52,7 @@
 		C141D1982C8A78E90081F796 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C141D19A2C8A985F0081F796 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		C141D19C2C8A9E350081F796 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		C141D19E2C8ADD8E0081F796 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		C19E5DCF2C856F7600320C1F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C19E5DD12C856FAE00320C1F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C19E5DD32C856FC600320C1F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				C19E5DF32C87FC4800320C1F /* TransactionsView.swift */,
 				C1E37FE12C8826D5005470F3 /* LoginView.swift */,
 				C141D19A2C8A985F0081F796 /* RegistrationView.swift */,
+				C141D19E2C8ADD8E0081F796 /* TabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			files = (
 				C10859C92C82B1990011E6D5 /* Advanced_iOS_AT2App.swift in Sources */,
 				C141D1952C8A6C730081F796 /* GoalCardView.swift in Sources */,
+				C141D19F2C8ADD8E0081F796 /* TabView.swift in Sources */,
 				C19E5DDA2C85781200320C1F /* HomeViewModel.swift in Sources */,
 				C19E5DD62C85761600320C1F /* PieChartView.swift in Sources */,
 				C19E5DD82C85768300320C1F /* DonutChartView.swift in Sources */,

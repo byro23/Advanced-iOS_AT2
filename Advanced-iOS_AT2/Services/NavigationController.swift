@@ -12,7 +12,7 @@ class NavigationController: ObservableObject {
     
     enum AppScreen: Hashable {
         case login
-        case landing
+        case tab
         case register
     }
     
@@ -22,6 +22,6 @@ class NavigationController: ObservableObject {
     }
     
     @Published var path = NavigationPath()
-    @Published var currentTab = Tab.home
+    @Published var currentTab = Tab.tab
 }
 
