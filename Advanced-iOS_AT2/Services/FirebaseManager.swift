@@ -1,0 +1,55 @@
+//
+//  Firestore Manager.swift
+//  Advanced-iOS_AT2
+//
+//  Created by Byron Lester on 3/9/2024.
+//
+
+import Foundation
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
+
+class FirebaseManager {
+    static let shared = FirebaseManager()
+    private let db = Firestore.firestore()
+    
+    
+    // Database operations here
+    
+    func authenticateUser(email:String, password: String) async throws {
+        try await Auth.auth().signIn(withEmail: email, password: password)
+    }
+    
+    
+    func createUser(email: String, password: String, name: String) async {
+        
+        do {
+            let emailQuerySnapshot = try await Firestore.firestore().collection("Users").whereField("email", isEqualTo: email).getDocuments()
+            
+            if(!emailQuerySnapshot.isEmpty) {
+                let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
+                let user = User(id: authResult.user.uid, name: name, email: email, goals: [], expenses: 0, income: 0)
+                let encodedUser = try Firestore.Encoder().encode(user)
+                
+                try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+            }
+        }
+        catch {
+            
+        }
+        
+    }
+    
+    func fetchUserById(uid: String) async -> DocumentSnapshot? {
+        do {
+            let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
+            return snapshot
+        }
+        catch {
+            print("Error retrieving snapshot")
+            return nil
+        }
+    }
+    
+}

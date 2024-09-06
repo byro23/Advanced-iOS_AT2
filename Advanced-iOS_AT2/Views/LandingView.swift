@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+extension Color {
+    static let moneyGreenColor = Color(red: 55/255, green: 140/255, blue: 120/255)
+}
+
+
 struct LandingView: View {
     
     @StateObject var viewModel = LandingViewModel()
     @State var isTapped: Bool = false
-    let moneyGreenColor = Color(red: 55/255, green: 140/255, blue: 120/255)
     
     var body: some View {
         if(viewModel.isLoginButtonTapped == false) {
@@ -26,7 +30,7 @@ struct LandingView: View {
                         .frame(width: UIScreen.main.bounds.width * 0.65, height: 40)
                 }
                 .foregroundStyle(.white)
-                .background(LinearGradient(gradient: Gradient(colors: [moneyGreenColor, Color.green]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
+                .background(LinearGradient(gradient: Gradient(colors: [Color.moneyGreenColor, Color.green]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
                 .cornerRadius(25)
                 .padding(.top, 200)
                 .padding(.bottom)

@@ -12,7 +12,7 @@ struct Goal: Identifiable, Codable, Hashable {
         
     let id : String
     var name: String
-    var description: String
+    // var description: String
     var goalAmount: Decimal // Converted to string when sent to db.
     var savedAmount: Decimal // Converted to string when sent to db.
     
@@ -20,6 +20,6 @@ struct Goal: Identifiable, Codable, Hashable {
 
 extension Goal {
     static var mock_goals: [Goal] = [
-        
+        .init(id: UUID().uuidString, name: "Holiday", goalAmount: 450, savedAmount: 1200)
     ]
 }

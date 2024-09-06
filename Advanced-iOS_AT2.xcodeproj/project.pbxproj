@@ -11,7 +11,9 @@
 		C10859CD2C82B19B0011E6D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C10859CC2C82B19B0011E6D5 /* Assets.xcassets */; };
 		C10859D02C82B19B0011E6D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C10859CF2C82B19B0011E6D5 /* Preview Assets.xcassets */; };
 		C141D1952C8A6C730081F796 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D1942C8A6C730081F796 /* GoalCardView.swift */; };
-		C141D1992C8A78E90081F796 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D1982C8A78E90081F796 /* DateFormatterHelper.swift */; };
+		C141D1992C8A78E90081F796 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D1982C8A78E90081F796 /* Utils.swift */; };
+		C141D19B2C8A985F0081F796 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D19A2C8A985F0081F796 /* RegistrationView.swift */; };
+		C141D19D2C8A9E350081F796 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D19C2C8A9E350081F796 /* RegistrationViewModel.swift */; };
 		C19E5DD02C856F7600320C1F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DCF2C856F7600320C1F /* HomeView.swift */; };
 		C19E5DD22C856FAE00320C1F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD12C856FAE00320C1F /* NavigationController.swift */; };
 		C19E5DD42C856FC600320C1F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD32C856FC600320C1F /* CardView.swift */; };
@@ -26,7 +28,7 @@
 		C19E5DE92C86D40200320C1F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C19E5DE82C86D40200320C1F /* FirebaseAnalytics */; };
 		C19E5DEC2C86D4AF00320C1F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C19E5DEB2C86D4AF00320C1F /* FirebaseAuth */; };
 		C19E5DEE2C86D4AF00320C1F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C19E5DED2C86D4AF00320C1F /* FirebaseFirestore */; };
-		C19E5DF02C86E26700320C1F /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DEF2C86E26700320C1F /* FirestoreManager.swift */; };
+		C19E5DF02C86E26700320C1F /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DEF2C86E26700320C1F /* FirebaseManager.swift */; };
 		C19E5DF22C86E50C00320C1F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DF12C86E50B00320C1F /* AuthViewModel.swift */; };
 		C19E5DF42C87FC4800320C1F /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DF32C87FC4800320C1F /* TransactionsView.swift */; };
 		C1E37FD72C880890005470F3 /* Money_drop_Lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = C1E37FD62C880890005470F3 /* Money_drop_Lottie.json */; };
@@ -46,7 +48,9 @@
 		C10859CC2C82B19B0011E6D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C10859CF2C82B19B0011E6D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C141D1942C8A6C730081F796 /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
-		C141D1982C8A78E90081F796 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
+		C141D1982C8A78E90081F796 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		C141D19A2C8A985F0081F796 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		C141D19C2C8A9E350081F796 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		C19E5DCF2C856F7600320C1F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C19E5DD12C856FAE00320C1F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C19E5DD32C856FC600320C1F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -58,7 +62,7 @@
 		C19E5DE02C85855300320C1F /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		C19E5DE32C86CBD200320C1F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C19E5DE52C86D27F00320C1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C19E5DEF2C86E26700320C1F /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		C19E5DEF2C86E26700320C1F /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		C19E5DF12C86E50B00320C1F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		C19E5DF32C87FC4800320C1F /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		C1E37FD62C880890005470F3 /* Money_drop_Lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Money_drop_Lottie.json; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 				C19E5DCF2C856F7600320C1F /* HomeView.swift */,
 				C19E5DF32C87FC4800320C1F /* TransactionsView.swift */,
 				C1E37FE12C8826D5005470F3 /* LoginView.swift */,
+				C141D19A2C8A985F0081F796 /* RegistrationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,10 +148,11 @@
 		C19E5DCC2C856F3D00320C1F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				C19E5DD92C85781200320C1F /* HomeViewModel.swift */,
 				C19E5DF12C86E50B00320C1F /* AuthViewModel.swift */,
+				C19E5DD92C85781200320C1F /* HomeViewModel.swift */,
 				C1E37FDF2C8810EC005470F3 /* LandingViewModel.swift */,
 				C1F5819D2C8852EB005D9DC2 /* LoginViewModel.swift */,
+				C141D19C2C8A9E350081F796 /* RegistrationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -168,8 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				C19E5DD12C856FAE00320C1F /* NavigationController.swift */,
-				C19E5DEF2C86E26700320C1F /* FirestoreManager.swift */,
-				C141D1982C8A78E90081F796 /* DateFormatterHelper.swift */,
+				C19E5DEF2C86E26700320C1F /* FirebaseManager.swift */,
+				C141D1982C8A78E90081F796 /* Utils.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -302,13 +308,15 @@
 				C19E5DD42C856FC600320C1F /* CardView.swift in Sources */,
 				C19E5DDC2C8578A600320C1F /* LandingView.swift in Sources */,
 				C1E37FE02C8810EC005470F3 /* LandingViewModel.swift in Sources */,
-				C19E5DF02C86E26700320C1F /* FirestoreManager.swift in Sources */,
+				C19E5DF02C86E26700320C1F /* FirebaseManager.swift in Sources */,
 				C1E37FE42C882712005470F3 /* InputView.swift in Sources */,
 				C1E37FE22C8826D5005470F3 /* LoginView.swift in Sources */,
+				C141D19B2C8A985F0081F796 /* RegistrationView.swift in Sources */,
 				C19E5DE12C85855300320C1F /* Goal.swift in Sources */,
 				C19E5DD02C856F7600320C1F /* HomeView.swift in Sources */,
 				C1F5819C2C884813005D9DC2 /* LogoHeaderView.swift in Sources */,
-				C141D1992C8A78E90081F796 /* DateFormatterHelper.swift in Sources */,
+				C141D1992C8A78E90081F796 /* Utils.swift in Sources */,
+				C141D19D2C8A9E350081F796 /* RegistrationViewModel.swift in Sources */,
 				C19E5DF22C86E50C00320C1F /* AuthViewModel.swift in Sources */,
 				C19E5DE42C86CBD200320C1F /* User.swift in Sources */,
 				C19E5DF42C87FC4800320C1F /* TransactionsView.swift in Sources */,

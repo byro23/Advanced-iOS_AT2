@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct LoginView : View {
+    @EnvironmentObject var authViewModel: AuthViewModel
     @State var email: String = ""
     @State var password: String = ""
     @Binding var isBackPressed: Bool
@@ -29,7 +30,9 @@ struct LoginView : View {
                 .padding(.horizontal)
                 
                 Button {
-                    
+                    Task {
+                        await authViewModel.signIn(email: email, password: password)
+                    }
                 } label: {
                     Text("Sign in")
                 }
@@ -44,6 +47,7 @@ struct LoginView : View {
         Color(red: 240/255, green: 255/255, blue: 255/255)
             .ignoresSafeArea()
         LoginView(isBackPressed: .constant(false))
+            .environmentObject(AuthViewModel())
     }
     
     

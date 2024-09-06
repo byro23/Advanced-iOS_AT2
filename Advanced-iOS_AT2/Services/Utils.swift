@@ -1,11 +1,21 @@
 //
-//  Helpers.swift
+//  Utils.swift
 //  Advanced-iOS_AT2
 //
 //  Created by Byron Lester on 6/9/2024.
 //
 
 import Foundation
+
+struct CurrencyUtils {
+    static func centsToDollars(cents: Int) -> Decimal {
+        return Decimal(cents) / 100
+    }
+    
+    static func dollarsToCents(dollars: Decimal) -> Int {
+        return NSDecimalNumber(decimal: dollars * 100).intValue
+    }
+}
 
 struct DateFormatterHelper {
     

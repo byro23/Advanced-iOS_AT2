@@ -31,16 +31,25 @@ struct Advanced_iOS_AT2App: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
+            NavigationStack(path: $navigationController.path) {
                 ZStack {
                     backgroundColor
                         .ignoresSafeArea()
                     HomeView()
+                        .navigationDestination(for: NavigationController.AppScreen.self) { screen in
+                            switch screen {
+                            case .login:
+                                LoginView(isBackPressed: .constant(false))
+                            default:
+                                LoginView(isBackPressed: .constant(false))
+                                
+                            }
+                        }
+                    
                 }
-                
             }
+            .environmentObject(navigationController) // Pass navigatrion controller to child views
+            .environmentObject(authViewModel) // Pass authentication view model to child views
         }
-        .environmentObject(navigationController)
-        .environmentObject(authViewModel)
     }
 }
