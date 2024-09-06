@@ -10,6 +10,8 @@
 		C10859C92C82B1990011E6D5 /* Advanced_iOS_AT2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10859C82C82B1990011E6D5 /* Advanced_iOS_AT2App.swift */; };
 		C10859CD2C82B19B0011E6D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C10859CC2C82B19B0011E6D5 /* Assets.xcassets */; };
 		C10859D02C82B19B0011E6D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C10859CF2C82B19B0011E6D5 /* Preview Assets.xcassets */; };
+		C141D1952C8A6C730081F796 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D1942C8A6C730081F796 /* GoalCardView.swift */; };
+		C141D1992C8A78E90081F796 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D1982C8A78E90081F796 /* DateFormatterHelper.swift */; };
 		C19E5DD02C856F7600320C1F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DCF2C856F7600320C1F /* HomeView.swift */; };
 		C19E5DD22C856FAE00320C1F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD12C856FAE00320C1F /* NavigationController.swift */; };
 		C19E5DD42C856FC600320C1F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD32C856FC600320C1F /* CardView.swift */; };
@@ -43,6 +45,8 @@
 		C10859C82C82B1990011E6D5 /* Advanced_iOS_AT2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advanced_iOS_AT2App.swift; sourceTree = "<group>"; };
 		C10859CC2C82B19B0011E6D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C10859CF2C82B19B0011E6D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C141D1942C8A6C730081F796 /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
+		C141D1982C8A78E90081F796 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		C19E5DCF2C856F7600320C1F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C19E5DD12C856FAE00320C1F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C19E5DD32C856FC600320C1F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 				C19E5DD72C85768300320C1F /* DonutChartView.swift */,
 				C1E37FE32C882712005470F3 /* InputView.swift */,
 				C1F5819B2C884813005D9DC2 /* LogoHeaderView.swift */,
+				C141D1942C8A6C730081F796 /* GoalCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			children = (
 				C19E5DD12C856FAE00320C1F /* NavigationController.swift */,
 				C19E5DEF2C86E26700320C1F /* FirestoreManager.swift */,
+				C141D1982C8A78E90081F796 /* DateFormatterHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C10859C92C82B1990011E6D5 /* Advanced_iOS_AT2App.swift in Sources */,
+				C141D1952C8A6C730081F796 /* GoalCardView.swift in Sources */,
 				C19E5DDA2C85781200320C1F /* HomeViewModel.swift in Sources */,
 				C19E5DD62C85761600320C1F /* PieChartView.swift in Sources */,
 				C19E5DD82C85768300320C1F /* DonutChartView.swift in Sources */,
@@ -301,6 +308,7 @@
 				C19E5DE12C85855300320C1F /* Goal.swift in Sources */,
 				C19E5DD02C856F7600320C1F /* HomeView.swift in Sources */,
 				C1F5819C2C884813005D9DC2 /* LogoHeaderView.swift in Sources */,
+				C141D1992C8A78E90081F796 /* DateFormatterHelper.swift in Sources */,
 				C19E5DF22C86E50C00320C1F /* AuthViewModel.swift in Sources */,
 				C19E5DE42C86CBD200320C1F /* User.swift in Sources */,
 				C19E5DF42C87FC4800320C1F /* TransactionsView.swift in Sources */,

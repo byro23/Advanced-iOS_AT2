@@ -6,3 +6,5 @@
 //
 
 import Foundation
+
+// Add, remove, edit transactions and the categories they belong to

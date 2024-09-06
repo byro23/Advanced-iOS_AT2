@@ -17,3 +17,9 @@ struct Goal: Identifiable, Codable, Hashable {
     var savedAmount: Decimal // Converted to string when sent to db.
     
 }
+
+extension Goal {
+    static var mock_goals: [Goal] = [
+        
+    ]
+}

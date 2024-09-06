@@ -54,6 +54,14 @@ struct HomeView: View {
                 PieChartView(data: Category.Mock_Categories)
             }
             
+            HStack {
+                Text("My goals: ")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                Spacer()
+            }
+            .padding()
+            
             Spacer()
             
         }
