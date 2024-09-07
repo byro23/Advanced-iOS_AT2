@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @StateObject var viewModel = HomeViewModel(name: "Unauthorised", expenseTotal: 0, incomeTotal: 0)
     
     var body: some View {
         VStack {
             HStack {
-                Text("Hello, user!")
+                Text("Hello, \(authViewModel.currentUser?.name ?? "Unauthenticated")")
                     .font(.title2)
                     .fontWeight(.semibold)
                     //.foregroundColor(.primary)
@@ -34,10 +35,8 @@ struct HomeView: View {
             .padding()
             
             HStack {
-                Text("Income:")
-                    .padding(.horizontal)
-                Text("Expenses: ")
-                    .padding(.horizontal)
+                ShortCardView(fillColor: Color.green, title: "Income", value: "\(CurrencyUtils.centsToDollars(cents: viewModel.incomeTotal))", imageName: "arrowshape.down.circle.fill")
+                ShortCardView(fillColor: Color.red, title: "Expense", value: "\(CurrencyUtils.centsToDollars(cents: viewModel.expenseTotal))", imageName: "arrowshape.up.circle.fill")
             }
             .padding()
             
@@ -67,9 +66,15 @@ struct HomeView: View {
             Spacer()
             
         }
+        .onAppear {
+            viewModel.name = authViewModel.currentUser?.name ?? "Unauthenticated"
+            viewModel.incomeTotal = authViewModel.currentUser?.income ?? 0
+            viewModel.expenseTotal = authViewModel.currentUser?.expenses ?? 0
+        }
     }
 }
 
 #Preview {
     HomeView()
+        .environmentObject(AuthViewModel())
 }

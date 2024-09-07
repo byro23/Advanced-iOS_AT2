@@ -9,13 +9,14 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     
-    // While testing, going to use static values
     
-    @Published var expenseTotal: Double
-    @Published var incomeTotal: Double
-    @Published var currentBalance: Double
+    @Published var name: String
+    @Published var expenseTotal: Int
+    @Published var incomeTotal: Int
+    @Published var currentBalance: Int
     
-    init(expenseTotal: Double, incomeTotal: Double) {
+    init(name: String, expenseTotal: Int, incomeTotal: Int) {
+        self.name = name
         self.expenseTotal = expenseTotal
         self.incomeTotal = incomeTotal
         self.currentBalance = incomeTotal - expenseTotal

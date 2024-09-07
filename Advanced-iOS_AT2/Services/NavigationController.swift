@@ -22,6 +22,6 @@ class NavigationController: ObservableObject {
     }
     
     @Published var path = NavigationPath()
-    @Published var currentTab = Tab.tab
+    @Published var currentTab = Tab.home
 }
 

@@ -40,6 +40,8 @@ struct Advanced_iOS_AT2App: App {
                             switch screen {
                             case .login:
                                 LoginView(isBackPressed: .constant(false))
+                            case .tab:
+                                UserView()
                             default:
                                 LoginView(isBackPressed: .constant(false))
                                 

@@ -34,7 +34,7 @@ class FirebaseManager {
             
             
             let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
-            let user = User(id: authResult.user.uid, name: name, email: email, goals: [], expenses: 0, income: 0)
+            let user = User(id: authResult.user.uid, name: name, email: email, expenses: 0, income: 0)
             let encodedUser = try Firestore.Encoder().encode(user)
             
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)

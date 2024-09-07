@@ -114,7 +114,7 @@ struct RegistrationView: View {
                         await authViewModel.signUp(email: viewModel.email, password: viewModel.password, name: viewModel.name)
                     }
                     if(authViewModel.authenticationState == .authenticated) {
-                        navigationController.path.append(NavigationController.AppScreen.)
+                        navigationController.path.append(NavigationController.AppScreen.tab)
                     }
                     
                 } label: {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardView: View {
+struct WideCardView: View {
     
     let cardTitle: String
     
@@ -41,5 +41,5 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(cardTitle: "Example")
+    WideCardView(cardTitle: "Example")
 }
