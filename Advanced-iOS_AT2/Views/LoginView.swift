@@ -10,6 +10,7 @@ import SwiftUI
 
 struct LoginView : View {
     @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var navigationController: NavigationController
     @State var email: String = ""
     @State var password: String = ""
     @Binding var isBackPressed: Bool
@@ -32,6 +33,12 @@ struct LoginView : View {
                 Button {
                     Task {
                         await authViewModel.signIn(email: email, password: password)
+                        if(authViewModel.authenticationState == .authenticated) {
+                            email = ""
+                            password = ""
+                            
+                            navigationController.path.append(NavigationController.AppScreen.tab)
+                        }
                     }
                 } label: {
                     Text("Sign in")

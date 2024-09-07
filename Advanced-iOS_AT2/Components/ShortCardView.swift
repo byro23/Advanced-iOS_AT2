@@ -20,7 +20,7 @@ struct ShortCardView: View {
             // Icon
             Image(systemName: imageName)
                 .resizable()
-                .frame(width: 40, height: 40)
+                .frame(width: 30, height: 30)
                 .foregroundStyle(fillColor)
                 .padding(10)
                 .background(Color.white)
@@ -32,12 +32,13 @@ struct ShortCardView: View {
                     .foregroundStyle(.white)
                 
                 Text("$\(value)")
-                    .font(.largeTitle)
+                    .font(.title2)
                     .fontWeight(.bold)
                     .foregroundStyle(.white)
             }
         }
-        .padding()
+        .frame(maxWidth: 200)
+        .padding(10)
         .background(fillColor)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(radius: 5)
@@ -45,5 +46,5 @@ struct ShortCardView: View {
 }
 
 #Preview {
-    ShortCardView(fillColor: Color.green, title: "Example", value: "$500", imageName: "wallet.pass.fill")
+    ShortCardView(fillColor: Color.green, title: "Example", value: "50000", imageName: "wallet.pass.fill")
 }

@@ -7,18 +7,15 @@
 
 import SwiftUI
 
-extension Color {
-    static let moneyGreenColor = Color(red: 55/255, green: 140/255, blue: 120/255)
-}
-
-
 struct LandingView: View {
     
+    @EnvironmentObject var navigationController: NavigationController
     @StateObject var viewModel = LandingViewModel()
     @State var isTapped: Bool = false
     
     var body: some View {
         if(viewModel.isLoginButtonTapped == false) {
+            Spacer()
             VStack {
                 LogoHeaderView()
                 
@@ -35,12 +32,15 @@ struct LandingView: View {
                 .padding(.top, 200)
                 .padding(.bottom)
                 
-                NavigationLink {
-                    
+                Button {
+                    navigationController.path.append(NavigationController.AppScreen.register)
                 } label: {
                     HStack {
-                        Text("Already a member?")
-                        Text("Login")
+                        Text("Haven't got an account?")
+                            .foregroundStyle(.gray)
+                        Text("Signup")
+                            .fontWeight(.bold)
+                            .foregroundStyle(.blue)
                     }
                 }
                 
@@ -62,10 +62,5 @@ struct LandingView: View {
 }
 
 #Preview {
-    ZStack {
-        Color(red: 240/255, green: 255/255, blue: 255/255)
-            .ignoresSafeArea()
-        LandingView()
-    }
-    
+    LandingView()
 }

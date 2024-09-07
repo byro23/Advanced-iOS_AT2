@@ -26,30 +26,30 @@ struct Advanced_iOS_AT2App: App {
     
     @StateObject var navigationController = NavigationController()
     @StateObject var authViewModel = AuthViewModel()
-    
-    let backgroundColor: Color = Color(red: 240/255, green: 255/255, blue: 255/255)
-    
+        
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $navigationController.path) {
-                ZStack {
-                    backgroundColor
-                        .ignoresSafeArea()
-                    HomeView()
-                        .navigationDestination(for: NavigationController.AppScreen.self) { screen in
-                            switch screen {
-                            case .login:
-                                LoginView(isBackPressed: .constant(false))
-                            case .tab:
-                                UserView()
-                            default:
-                                LoginView(isBackPressed: .constant(false))
-                                
-                            }
+                LandingView()
+                    .applyMintBackground()
+                    .navigationDestination(for: NavigationController.AppScreen.self) { screen in
+                        switch screen {
+                        case .login:
+                            LoginView(isBackPressed: .constant(false))
+                                .applyMintBackground()
+                        case .register:
+                            RegistrationView()
+                                .applyMintBackground()
+                        case .tab:
+                            UserView()
+                                .applyMintBackground()
+                                .navigationBarBackButtonHidden(true)
+                        
                         }
-                    
-                }
+                    }
+                
             }
+            .applyMintBackground()
             .environmentObject(navigationController) // Pass navigatrion controller to child views
             .environmentObject(authViewModel) // Pass authentication view model to child views
         }

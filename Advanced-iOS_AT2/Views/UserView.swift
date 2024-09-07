@@ -18,6 +18,7 @@ struct UserView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
+                .tag(NavigationController.Tab.home)
         }
         
     }
@@ -26,4 +27,5 @@ struct UserView: View {
 #Preview {
     UserView()
         .environmentObject(NavigationController())
+        .environmentObject(AuthViewModel())
 }

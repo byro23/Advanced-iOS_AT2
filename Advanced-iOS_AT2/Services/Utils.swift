@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct CurrencyUtils {
     static func centsToDollars(cents: Int) -> Decimal {
@@ -24,4 +25,27 @@ struct DateFormatterHelper {
         formatter.dateFormat = "d MMMM, yyyy"
         return formatter
     }()
+}
+
+struct MintBackgroundModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        ZStack {
+            Color.mintBackgroundColor
+                .ignoresSafeArea()
+            content
+        }
+    }
+}
+
+extension View {
+    func applyMintBackground() -> some View {
+        self.modifier(MintBackgroundModifier())
+    }
+}
+
+// Custom Colour Storage
+
+extension Color {
+    static let moneyGreenColor = Color(red: 55/255, green: 140/255, blue: 120/255)
+    static let mintBackgroundColor: Color = Color(red: 240/255, green: 255/255, blue: 255/255)
 }

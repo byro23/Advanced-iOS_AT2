@@ -12,8 +12,9 @@ class NavigationController: ObservableObject {
     
     enum AppScreen: Hashable {
         case login
-        case tab
         case register
+        case tab
+        
     }
     
     enum Tab {

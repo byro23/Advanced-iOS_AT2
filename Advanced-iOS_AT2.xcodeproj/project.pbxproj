@@ -140,12 +140,12 @@
 		C19E5DCB2C856F1D00320C1F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C1E37FE12C8826D5005470F3 /* LoginView.swift */,
+				C141D19E2C8ADD8E0081F796 /* UserView.swift */,
 				C19E5DDB2C8578A600320C1F /* LandingView.swift */,
 				C19E5DCF2C856F7600320C1F /* HomeView.swift */,
 				C19E5DF32C87FC4800320C1F /* TransactionsView.swift */,
-				C1E37FE12C8826D5005470F3 /* LoginView.swift */,
 				C141D19A2C8A985F0081F796 /* RegistrationView.swift */,
-				C141D19E2C8ADD8E0081F796 /* UserView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

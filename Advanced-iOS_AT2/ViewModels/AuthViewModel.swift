@@ -24,6 +24,7 @@ class AuthViewModel: ObservableObject {
     @Published var isLoggedIn: Bool = false
     @Published var currentUser: User?
     @Published var authenticationState: AuthenticationState = .unauthenticated
+    @Published var emailAlreadyExists: Bool = false
     
     func signIn(email: String, password: String) async {
         do {
@@ -31,6 +32,7 @@ class AuthViewModel: ObservableObject {
             try await FirebaseManager.shared.authenticateUser(email: email, password: password)
             print("User authenticated.")
             await fetchUser()
+            authenticationState = .authenticated
         }
         catch {
             authenticationState = .unauthenticated
@@ -50,6 +52,7 @@ class AuthViewModel: ObservableObject {
                 authenticationState = .authenticated
                 return
             }
+            emailAlreadyExists = true
             authenticationState = .unauthenticated
         }
         catch {

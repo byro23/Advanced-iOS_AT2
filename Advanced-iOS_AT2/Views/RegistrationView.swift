@@ -108,7 +108,7 @@ struct RegistrationView: View {
                     .progressViewStyle(CircularProgressViewStyle())
                     .scaleEffect(1.5)
             }
-            else {
+            else if(authViewModel.authenticationState == .unauthenticated) {
                 Button {
                     Task {
                         await authViewModel.signUp(email: viewModel.email, password: viewModel.password, name: viewModel.name)
@@ -129,9 +129,23 @@ struct RegistrationView: View {
                 .disabled(!viewModel.formIsValid)
                 .opacity(viewModel.formIsValid ? 1.0 : 0.5)
             }
+            else {
+                Text("Registration successful! \($viewModel.loadingMessage)")
+                    .font(.headline)
+            }
         }
+        .alert
         .padding(.bottom, 100)
         .navigationTitle("Registration")
+        .onChange(of: authViewModel.authenticationState) { _, newState in
+            if(newState == .authenticated) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    // Code to run after 3 seconds
+                    navigationController.path.removeLast()
+                    navigationController.path.append(NavigationController.AppScreen.tab)
+                }
+            }
+        }
     }
 }
 
