@@ -10,6 +10,7 @@
 		C10859C92C82B1990011E6D5 /* Advanced_iOS_AT2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10859C82C82B1990011E6D5 /* Advanced_iOS_AT2App.swift */; };
 		C10859CD2C82B19B0011E6D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C10859CC2C82B19B0011E6D5 /* Assets.xcassets */; };
 		C10859D02C82B19B0011E6D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C10859CF2C82B19B0011E6D5 /* Preview Assets.xcassets */; };
+		C13C6B992C901614001E17E0 /* UserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C6B982C901614001E17E0 /* UserHeaderView.swift */; };
 		C141D1952C8A6C730081F796 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D1942C8A6C730081F796 /* GoalCardView.swift */; };
 		C141D1992C8A78E90081F796 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D1982C8A78E90081F796 /* Utils.swift */; };
 		C141D19B2C8A985F0081F796 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D19A2C8A985F0081F796 /* RegistrationView.swift */; };
@@ -49,6 +50,7 @@
 		C10859C82C82B1990011E6D5 /* Advanced_iOS_AT2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advanced_iOS_AT2App.swift; sourceTree = "<group>"; };
 		C10859CC2C82B19B0011E6D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C10859CF2C82B19B0011E6D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C13C6B982C901614001E17E0 /* UserHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderView.swift; sourceTree = "<group>"; };
 		C141D1942C8A6C730081F796 /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
 		C141D1982C8A78E90081F796 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C141D19A2C8A985F0081F796 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				C1F5819B2C884813005D9DC2 /* LogoHeaderView.swift */,
 				C141D1942C8A6C730081F796 /* GoalCardView.swift */,
 				C141D1A02C8BCA390081F796 /* ShortCardView.swift */,
+				C13C6B982C901614001E17E0 /* UserHeaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				C19E5DE42C86CBD200320C1F /* User.swift in Sources */,
 				C19E5DF42C87FC4800320C1F /* TransactionsView.swift in Sources */,
 				C1F5819E2C8852EB005D9DC2 /* LoginViewModel.swift in Sources */,
+				C13C6B992C901614001E17E0 /* UserHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

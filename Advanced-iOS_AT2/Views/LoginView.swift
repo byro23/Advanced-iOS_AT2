@@ -11,16 +11,15 @@ import SwiftUI
 struct LoginView : View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var navigationController: NavigationController
-    @State var email: String = ""
-    @State var password: String = ""
+    @StateObject var viewModel = LoginViewModel()
     @Binding var isBackPressed: Bool
     
     var body: some View {
         VStack() {
-            InputView(text: $email, title: "Email", placeholder: "youremail@domain.com")
+            InputView(text: $viewModel.email, title: "Email", placeholder: "youremail@domain.com")
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
-            InputView(text: $password, title: "Password", placeholder: "******", isSecuredField: true)
+            InputView(text: $viewModel.password, title: "Password", placeholder: "******", isSecuredField: true)
             
             HStack {
                 Button {
@@ -32,10 +31,10 @@ struct LoginView : View {
                 
                 Button {
                     Task {
-                        await authViewModel.signIn(email: email, password: password)
+                        await authViewModel.signIn(email: viewModel.email, password: viewModel.password)
                         if(authViewModel.authenticationState == .authenticated) {
-                            email = ""
-                            password = ""
+                            viewModel.email = ""
+                            viewModel.password = ""
                             
                             navigationController.path.append(NavigationController.AppScreen.tab)
                         }
@@ -44,6 +43,7 @@ struct LoginView : View {
                     Text("Sign in")
                 }
                 .padding(.horizontal)
+                .disabled(!viewModel.formIsValid)
             }
         }
     }
@@ -55,6 +55,7 @@ struct LoginView : View {
             .ignoresSafeArea()
         LoginView(isBackPressed: .constant(false))
             .environmentObject(AuthViewModel())
+            .environmentObject(NavigationController())
     }
     
     

@@ -134,7 +134,11 @@ struct RegistrationView: View {
                     .font(.headline)
             }
         }
-        .alert
+        .alert("Email already exists. Please try again.", isPresented: $authViewModel.emailAlreadyExists) {
+            Button("Ok", role: .cancel) {
+                authViewModel.emailAlreadyExists = false
+            }
+        }
         .padding(.bottom, 100)
         .navigationTitle("Registration")
         .onChange(of: authViewModel.authenticationState) { _, newState in

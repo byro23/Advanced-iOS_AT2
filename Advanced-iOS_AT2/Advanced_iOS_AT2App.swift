@@ -49,7 +49,6 @@ struct Advanced_iOS_AT2App: App {
                     }
                 
             }
-            .applyMintBackground()
             .environmentObject(navigationController) // Pass navigatrion controller to child views
             .environmentObject(authViewModel) // Pass authentication view model to child views
         }

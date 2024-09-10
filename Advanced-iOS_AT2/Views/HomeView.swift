@@ -12,38 +12,29 @@ struct HomeView: View {
     @StateObject var viewModel = HomeViewModel(name: "Unauthorised", expenseTotal: 0, incomeTotal: 0)
     
     var body: some View {
+        
+        
         VStack {
+            
             HStack {
                 Text("Hello, \(authViewModel.currentUser?.name ?? "Unauthenticated")")
                     .font(.title2)
                     .fontWeight(.semibold)
-                    //.foregroundColor(.primary)
+                .padding()
+                
                 Spacer()
-                
-                Image(systemName: "person.circle")
-                    .resizable()
-                    .frame(width: 35, height: 35)
-                    .foregroundColor(.blue)
-                    .padding(.horizontal)
-                
-                Image(systemName: "bell")
-                    .resizable()
-                    .frame(width: 35, height: 35)
-                    .foregroundColor(.blue)
-                
             }
-            .padding()
             
             HStack {
-                ShortCardView(fillColor: Color.green, title: "Income", value: "\(CurrencyUtils.centsToDollars(cents: viewModel.incomeTotal))", imageName: "arrowshape.down.circle.fill")
-                ShortCardView(fillColor: Color.red, title: "Expense", value: "\(CurrencyUtils.centsToDollars(cents: viewModel.expenseTotal))", imageName: "arrowshape.up.circle.fill")
+                ShortCardView(fillColor: Color.moneyBrightGreenColor, title: "Income", value: "\(CurrencyUtils.centsToDollars(cents: viewModel.incomeTotal))", imageName: "arrowshape.down.circle.fill")
+                ShortCardView(fillColor: Color.red, title: "Expenses", value: "\(CurrencyUtils.centsToDollars(cents: viewModel.expenseTotal))", imageName: "arrowshape.up.circle.fill")
             }
             .padding()
             
             // Maybe expense/income here?
             
             HStack {
-                Text("Your summary:")
+                Text("Your summary")
                     .font(.title2)
                     .fontWeight(.semibold)
                 Spacer()
@@ -54,6 +45,15 @@ struct HomeView: View {
             HStack {
                 PieChartView(data: Category.Mock_Categories)
             }
+            .padding()
+            
+            HStack {
+                Text("Recent Transactions")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                Spacer()
+            }
+            .padding()
             
             HStack {
                 Text("My goals: ")
@@ -71,6 +71,8 @@ struct HomeView: View {
             viewModel.incomeTotal = authViewModel.currentUser?.income ?? 0
             viewModel.expenseTotal = authViewModel.currentUser?.expenses ?? 0
         }
+        
+        
     }
 }
 

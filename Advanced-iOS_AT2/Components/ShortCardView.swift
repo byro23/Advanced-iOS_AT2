@@ -46,5 +46,5 @@ struct ShortCardView: View {
 }
 
 #Preview {
-    ShortCardView(fillColor: Color.green, title: "Example", value: "50000", imageName: "wallet.pass.fill")
+    ShortCardView(fillColor: Color.moneyBrightGreenColor, title: "Example", value: "50000", imageName: "wallet.pass.fill")
 }

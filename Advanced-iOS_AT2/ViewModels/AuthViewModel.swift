@@ -80,7 +80,18 @@ class AuthViewModel: ObservableObject {
             print("Error decoding user")
             print(error)
         }
-        
-        
     }
+    
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+            self.currentUser = nil
+            authenticationState = .unauthenticated
+        }
+        catch {
+            print("Error signing user out: \(error)")
+        }
+    }
+    
+    
 }

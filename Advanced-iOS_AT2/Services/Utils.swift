@@ -46,6 +46,7 @@ extension View {
 // Custom Colour Storage
 
 extension Color {
+    static let moneyBrightGreenColor = Color(red: 5/255, green: 168/255, blue: 107/255)
     static let moneyGreenColor = Color(red: 55/255, green: 140/255, blue: 120/255)
     static let mintBackgroundColor: Color = Color(red: 240/255, green: 255/255, blue: 255/255)
 }
