@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserView: View {
     
+    @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var navigationController: NavigationController
     
     init() {
@@ -18,12 +19,13 @@ struct UserView: View {
     var body: some View {
                     
         TabView(selection: $navigationController.currentTab) {
-            HomeView()
+            HomeView(uid: authViewModel.currentUser?.id ?? "")
+                .applyMintBackground()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
                 .tag(NavigationController.Tab.home)
-                .applyMintBackground()
+                
         }
     }
 }

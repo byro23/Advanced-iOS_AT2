@@ -7,17 +7,22 @@
 
 import SwiftUI
 
-struct WideCardView: View {
+struct TransactionCardView: View {
     
-    let cardTitle: String
+    @Binding var transactions: [Transaction]
     
     var body: some View {
         VStack {
             HStack {
-                Text(cardTitle)
+                /*Text("Latest Transactions")
                     .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.black)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.black) */
+                
+                LazyVStack(spacing: 25) {
+                    
+                }
+                
                 Spacer()
                 
                 Button {
@@ -41,5 +46,5 @@ struct WideCardView: View {
 }
 
 #Preview {
-    WideCardView(cardTitle: "Example")
+    TransactionCardView(transactions: .constant(Transaction.Mock_Transactions))
 }

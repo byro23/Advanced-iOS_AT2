@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C106EB252C904F1B0074FBDA /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C106EB242C904F1B0074FBDA /* Transaction.swift */; };
+		C106EB272C9105000074FBDA /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C106EB262C9105000074FBDA /* TransactionRowView.swift */; };
 		C10859C92C82B1990011E6D5 /* Advanced_iOS_AT2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10859C82C82B1990011E6D5 /* Advanced_iOS_AT2App.swift */; };
 		C10859CD2C82B19B0011E6D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C10859CC2C82B19B0011E6D5 /* Assets.xcassets */; };
 		C10859D02C82B19B0011E6D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C10859CF2C82B19B0011E6D5 /* Preview Assets.xcassets */; };
@@ -19,7 +21,7 @@
 		C141D1A12C8BCA390081F796 /* ShortCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141D1A02C8BCA390081F796 /* ShortCardView.swift */; };
 		C19E5DD02C856F7600320C1F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DCF2C856F7600320C1F /* HomeView.swift */; };
 		C19E5DD22C856FAE00320C1F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD12C856FAE00320C1F /* NavigationController.swift */; };
-		C19E5DD42C856FC600320C1F /* WideCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD32C856FC600320C1F /* WideCardView.swift */; };
+		C19E5DD42C856FC600320C1F /* TransactionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD32C856FC600320C1F /* TransactionCardView.swift */; };
 		C19E5DD62C85761600320C1F /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD52C85761600320C1F /* PieChartView.swift */; };
 		C19E5DD82C85768300320C1F /* DonutChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD72C85768300320C1F /* DonutChartView.swift */; };
 		C19E5DDA2C85781200320C1F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD92C85781200320C1F /* HomeViewModel.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C106EB242C904F1B0074FBDA /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		C106EB262C9105000074FBDA /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowView.swift; sourceTree = "<group>"; };
 		C10859C52C82B1990011E6D5 /* Advanced-iOS_AT2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Advanced-iOS_AT2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10859C82C82B1990011E6D5 /* Advanced_iOS_AT2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advanced_iOS_AT2App.swift; sourceTree = "<group>"; };
 		C10859CC2C82B19B0011E6D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,7 +63,7 @@
 		C141D1A02C8BCA390081F796 /* ShortCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortCardView.swift; sourceTree = "<group>"; };
 		C19E5DCF2C856F7600320C1F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C19E5DD12C856FAE00320C1F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		C19E5DD32C856FC600320C1F /* WideCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCardView.swift; sourceTree = "<group>"; };
+		C19E5DD32C856FC600320C1F /* TransactionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCardView.swift; sourceTree = "<group>"; };
 		C19E5DD52C85761600320C1F /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		C19E5DD72C85768300320C1F /* DonutChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChartView.swift; sourceTree = "<group>"; };
 		C19E5DD92C85781200320C1F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -167,7 +171,7 @@
 		C19E5DCD2C856F4C00320C1F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C19E5DD32C856FC600320C1F /* WideCardView.swift */,
+				C19E5DD32C856FC600320C1F /* TransactionCardView.swift */,
 				C19E5DD52C85761600320C1F /* PieChartView.swift */,
 				C19E5DD72C85768300320C1F /* DonutChartView.swift */,
 				C1E37FE32C882712005470F3 /* InputView.swift */,
@@ -175,6 +179,7 @@
 				C141D1942C8A6C730081F796 /* GoalCardView.swift */,
 				C141D1A02C8BCA390081F796 /* ShortCardView.swift */,
 				C13C6B982C901614001E17E0 /* UserHeaderView.swift */,
+				C106EB262C9105000074FBDA /* TransactionRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				C19E5DDE2C857BA200320C1F /* Category.swift */,
 				C19E5DE02C85855300320C1F /* Goal.swift */,
 				C19E5DE32C86CBD200320C1F /* User.swift */,
+				C106EB242C904F1B0074FBDA /* Transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 			files = (
 				C10859C92C82B1990011E6D5 /* Advanced_iOS_AT2App.swift in Sources */,
 				C141D1952C8A6C730081F796 /* GoalCardView.swift in Sources */,
+				C106EB272C9105000074FBDA /* TransactionRowView.swift in Sources */,
 				C141D19F2C8ADD8E0081F796 /* UserView.swift in Sources */,
 				C19E5DDA2C85781200320C1F /* HomeViewModel.swift in Sources */,
 				C19E5DD62C85761600320C1F /* PieChartView.swift in Sources */,
@@ -316,7 +323,7 @@
 				C141D1A12C8BCA390081F796 /* ShortCardView.swift in Sources */,
 				C19E5DDF2C857BA200320C1F /* Category.swift in Sources */,
 				C1E37FDB2C8808D1005470F3 /* LottieView.swift in Sources */,
-				C19E5DD42C856FC600320C1F /* WideCardView.swift in Sources */,
+				C19E5DD42C856FC600320C1F /* TransactionCardView.swift in Sources */,
 				C19E5DDC2C8578A600320C1F /* LandingView.swift in Sources */,
 				C1E37FE02C8810EC005470F3 /* LandingViewModel.swift in Sources */,
 				C19E5DF02C86E26700320C1F /* FirebaseManager.swift in Sources */,
@@ -331,6 +338,7 @@
 				C19E5DF22C86E50C00320C1F /* AuthViewModel.swift in Sources */,
 				C19E5DE42C86CBD200320C1F /* User.swift in Sources */,
 				C19E5DF42C87FC4800320C1F /* TransactionsView.swift in Sources */,
+				C106EB252C904F1B0074FBDA /* Transaction.swift in Sources */,
 				C1F5819E2C8852EB005D9DC2 /* LoginViewModel.swift in Sources */,
 				C13C6B992C901614001E17E0 /* UserHeaderView.swift in Sources */,
 			);

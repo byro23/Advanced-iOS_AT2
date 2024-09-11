@@ -59,4 +59,36 @@ class FirebaseManager {
         }
     }
     
+    func addTransaction(transaction: Transaction, uid: String) {
+        let transactionsRef = db.collection("users").document(uid).collection("transactions")
+        
+        do {
+            try transactionsRef.addDocument(from: transaction) { error in
+                if let error = error {
+                    print("Error adding transaction for \(uid) to Firestore: \(error.localizedDescription)")
+                } else {
+                    print("Transaction added successfully")
+                }
+            }
+        } catch let error {
+            print("Error adding transaction for \(uid) to Firestore: \(error.localizedDescription)")
+        }
+        
+    }
+    
+    func fetchTransactions(uid: String) async -> [Transaction] {
+        var transactions: [Transaction]
+        
+        let transactionsRef = db.collection("users").document(uid).collection("Transactions")
+        do {
+            let querySnapshot = try await transactionsRef.getDocuments()
+            transactions = try querySnapshot.documents.map {try $0.data(as: Transaction.self)}
+        }
+        catch {
+            print("Error fetching transactions: \(error)")
+        }
+        
+        return transactions
+    }
+    
 }
