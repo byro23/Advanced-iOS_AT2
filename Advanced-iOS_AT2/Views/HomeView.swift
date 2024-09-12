@@ -62,9 +62,9 @@ struct HomeView: View {
                         Spacer()
                         
                         Button {
-                            viewModel.addTestTransaction()
+                            viewModel.addTestTransaction(uid: authViewModel.currentUser?.id ?? "")
                         } label: {
-                            Text("Add test")
+                            Text("Add test (online)")
                                 .font(.footnote)
                         }
                         

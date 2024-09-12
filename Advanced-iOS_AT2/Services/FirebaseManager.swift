@@ -79,10 +79,11 @@ class FirebaseManager {
     func fetchTransactions(uid: String) async -> [Transaction] {
         var transactions: [Transaction] = []
         
-        let transactionsRef = db.collection("users").document(uid).collection("Transactions")
+        let transactionsRef = db.collection("users").document(uid).collection("transactions")
         do {
             let querySnapshot = try await transactionsRef.getDocuments()
             transactions = try querySnapshot.documents.map {try $0.data(as: Transaction.self)}
+            print("Transactions fetched successfully")
         }
         catch {
             print("Error fetching transactions: \(error)")

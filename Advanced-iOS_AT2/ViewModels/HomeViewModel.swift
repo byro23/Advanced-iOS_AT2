@@ -38,10 +38,10 @@ class HomeViewModel: ObservableObject {
         
     }
     
-    func addTestTransaction() {
+    func addTestTransaction(uid: String) {
         let testTransaction = Transaction(id: UUID().uuidString, name: "Test", type: TransactionType.debit, categoryId: "mock_cat_001", date: Date(), amount: CurrencyUtils.dollarsToCents(dollars: 9.99))
         
-        // FirebaseManager.shared.addTransaction(transaction: testTransaction, uid: uid)
+        FirebaseManager.shared.addTransaction(transaction: testTransaction, uid: uid)
         
         transactions.append(testTransaction)
     }
