@@ -11,6 +11,7 @@ class LoginViewModel: ObservableObject {
     
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var isInvalid: Bool = false
     
     var formIsValid: Bool {
         return email.contains("@") && password.count > 5

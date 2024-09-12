@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var navigationController: NavigationController
     @EnvironmentObject var authViewModel: AuthViewModel
     @StateObject var viewModel = HomeViewModel(name: "Unauthorised", expenseTotal: 0, incomeTotal: 0)
     
@@ -69,7 +70,7 @@ struct HomeView: View {
                         }
                         
                         Button {
-                            
+                            navigationController.currentTab = .transactions
                         } label: {
                             Text("See all")
                         }

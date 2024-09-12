@@ -29,7 +29,7 @@ struct LandingView: View {
                 .foregroundStyle(.white)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.moneyGreenColor, Color.green]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
                 .cornerRadius(25)
-                .padding(.top, 200)
+                .padding(.top, 250)
                 .padding(.bottom)
                 
                 Button {

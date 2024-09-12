@@ -21,30 +21,48 @@ struct LoginView : View {
                 .keyboardType(.emailAddress)
             InputView(text: $viewModel.password, title: "Password", placeholder: "******", isSecuredField: true)
             
-            HStack {
-                Button {
-                    isBackPressed = false
-                } label: {
-                    Text("Back")
-                }
-                .padding(.horizontal)
-                
-                Button {
-                    Task {
-                        await authViewModel.signIn(email: viewModel.email, password: viewModel.password)
-                        if(authViewModel.authenticationState == .authenticated) {
-                            viewModel.email = ""
-                            viewModel.password = ""
-                            
-                            navigationController.path.append(NavigationController.AppScreen.tab)
+            if(authViewModel.authenticationState != .authenticating) {
+                HStack {
+                    Button {
+                        isBackPressed = false
+                    } label: {
+                        Text("Back")
+                    }
+                    .padding(.horizontal)
+                    
+                    Button {
+                        Task {
+                            await authViewModel.signIn(email: viewModel.email, password: viewModel.password)
+                            if(authViewModel.authenticationState == .authenticated) {
+                                viewModel.email = ""
+                                viewModel.password = ""
+                                
+                                navigationController.path.append(NavigationController.AppScreen.tab)
+                                isBackPressed = false
+                            }
+                            else {
+                                viewModel.isInvalid = true
+                            }
+                        }
+                    } label: {
+                        Text("Sign in")
+                    }
+                    .alert("Invalid email and/or password. Try again.", isPresented: $viewModel.isInvalid) {
+                        Button("Ok", role: .cancel) {
+                            viewModel.isInvalid = false
                         }
                     }
-                } label: {
-                    Text("Sign in")
+                    .padding(.horizontal)
+                    .disabled(!viewModel.formIsValid)
                 }
-                .padding(.horizontal)
-                .disabled(!viewModel.formIsValid)
             }
+            else {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .scaleEffect(1.5)
+            }
+            
+            
         }
     }
 }

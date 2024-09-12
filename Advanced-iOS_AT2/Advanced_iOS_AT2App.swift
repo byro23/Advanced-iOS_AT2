@@ -44,7 +44,9 @@ struct Advanced_iOS_AT2App: App {
                             UserView()
                                 .applyMintBackground()
                                 .navigationBarBackButtonHidden(true)
-                        
+                        case .transactions:
+                            TransactionsView()
+                                .applyMintBackground()
                         }
                     }
                 

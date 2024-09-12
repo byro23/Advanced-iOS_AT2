@@ -19,10 +19,13 @@ struct TransactionsView: View {
         VStack {
             
             HStack {
-                Text("Search")
+                Text("Search:")
                     .padding(.trailing, 10)
+                    .fontWeight(.semibold)
+                
                 TextField("Filter by name, value or date", text: $viewModel.filterText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .font(.subheadline)
             }
             .padding()
             
@@ -46,4 +49,9 @@ struct TransactionsView: View {
             }
         }
     }
+}
+
+#Preview {
+    TransactionsView()
+        .environmentObject(AuthViewModel())
 }

@@ -14,6 +14,7 @@ class NavigationController: ObservableObject {
         case login
         case register
         case tab
+        case transactions
         
     }
     
