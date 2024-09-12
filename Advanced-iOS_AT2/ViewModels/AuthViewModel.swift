@@ -46,18 +46,19 @@ class AuthViewModel: ObservableObject {
         authenticationState = .authenticating
         
         do {
-            let success = try await FirebaseManager.shared.createUser(email: email, password: password, name: name)
-            if(success) {
-                print("Sign up successful")
+            let isEmailUnique = try await FirebaseManager.shared.createUser(email: email, password: password, name: name)
+            if(isEmailUnique) {
+                try await FirebaseManager.shared.authenticateUser(email: email, password: password)
+                await fetchUser()
                 authenticationState = .authenticated
+                print("Sign up successful.")
                 return
             }
             emailAlreadyExists = true
             authenticationState = .unauthenticated
         }
         catch {
-            print("Error signing up")
-            print(error)
+            print("Error signing up: \(error)")
             authenticationState = .unauthenticated
         }
     }

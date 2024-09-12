@@ -46,5 +46,5 @@ struct PieChartView: View {
 }
 
 #Preview {
-    PieChartView(data: Category.Mock_Categories)
+    PieChartView(data: Category.Default_Categories)
 }

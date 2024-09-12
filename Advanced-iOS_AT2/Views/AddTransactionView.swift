@@ -11,7 +11,7 @@ struct AddTransactionView: View {
     
     @State private var transactionName: String = ""
     @State private var transactionAmount: String = ""
-    @State private var transactionCategory: String = ""
+    @State var transactionCategory: [Category]
     
     var body: some View {
         List {
@@ -19,11 +19,16 @@ struct AddTransactionView: View {
                 TextField("Transaction Name", text: $transactionName)
                 TextField("Transaction Amount", text: $transactionAmount)
                     .keyboardType(.decimalPad)
+                    .onChange(of: transactionAmount) { oldValue, newValue in
+                        if let amount = Double(newValue), amount < 0 {
+                            transactionAmount = "" // Clear the field if the input is invalid
+                        }
+                    }
                 
             }
             
             Section(header: Text("Tranaction Category")) {
-                TextField("Transaction Category", text: $transactionCategory)
+                
             }
             
             Section {
@@ -42,5 +47,5 @@ struct AddTransactionView: View {
 }
 
 #Preview {
-    AddTransactionView()
+    AddTransactionView(transactionCategory: Category.Default_Categories)
 }

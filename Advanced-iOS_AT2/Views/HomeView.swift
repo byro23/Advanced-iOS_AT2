@@ -51,7 +51,7 @@ struct HomeView: View {
                     .padding(.top)
                     
                     HStack {
-                        PieChartView(data: Category.Mock_Categories)
+                        PieChartView(data: Category.Default_Categories)
                     }
                     .padding()
                     
@@ -100,7 +100,7 @@ struct HomeView: View {
                     viewModel.expenseTotal = authViewModel.currentUser?.expenses ?? 0
                     
                     Task {
-                        await viewModel.fetchTransactions(uid: authViewModel.currentUser?.id ?? "")
+                        await viewModel.fetchData(uid: authViewModel.currentUser?.id ?? "")
                     }
                 }
                 

@@ -37,6 +37,14 @@ class FirebaseManager {
             let user = User(id: authResult.user.uid, name: name, email: email, expenses: 0, income: 0)
             let encodedUser = try Firestore.Encoder().encode(user)
             
+            // Add default data
+            do {
+                try await addDefaultData(uid: user.id)
+            }
+            catch {
+                print("Error batch adding default data: \(error)")
+            }
+            
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             return true
         }
@@ -57,6 +65,27 @@ class FirebaseManager {
             print("Error retrieving snapshot")
             return nil
         }
+    }
+    
+    func addDefaultData(uid: String) async throws {
+        let categoriesRef = db.collection("users").document(uid).collection("categories")
+        
+        let batch = db.batch()
+        
+        for category in Category.Default_Categories {
+            let newCatRef = categoriesRef.document(category.id)
+            // Dictionary representation
+            let categoryData: [String:Any] = [
+                "id" : category.id,
+                "name" : category.name,
+                "totalAmount": category.totalAmount
+            ]
+            
+            batch.setData(categoryData, forDocument: newCatRef)
+        }
+        
+        try await batch.commit()
+        
     }
     
     func addTransaction(transaction: Transaction, uid: String) {
@@ -91,6 +120,26 @@ class FirebaseManager {
         
         // Returns empty array if an error is thrown
         return transactions
+    }
+    
+    func fetchCategories(uid: String) async -> [Category] {
+        var categories: [Category] = []
+        
+        let categoriesRef = db.collection("users").document(uid).collection("categories")
+        
+        do {
+            let querySnapshot = try await categoriesRef.getDocuments()
+            categories = try querySnapshot.documents.map {try $0.data(as: Category.self)}
+            print("Categories fetched successfully")
+        }
+        catch {
+            print("Error fetching categories: \(error)")
+        }
+        
+        // Returns empty if error occurs
+        return categories
+        
+        
     }
     
 }

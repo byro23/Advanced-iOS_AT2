@@ -14,8 +14,10 @@ class HomeViewModel: ObservableObject {
     @Published var expenseTotal: Int
     @Published var incomeTotal: Int
     @Published var currentBalance: Int
-    @Published var transactions : [Transaction] = []
     @Published var isLoadingTransactions: Bool = true
+    
+    @Published var transactions: [Transaction] = []
+    @Published var categories: [Category] = []
     
     init(name: String, expenseTotal: Int, incomeTotal: Int) {
         self.name = name
@@ -24,7 +26,7 @@ class HomeViewModel: ObservableObject {
         self.currentBalance = incomeTotal - expenseTotal
     }
     
-    func fetchTransactions(uid: String) async {
+    func fetchData(uid: String) async {
         
         if uid == "" {
             transactions = Transaction.Mock_Transactions // For preview/testing
@@ -34,6 +36,7 @@ class HomeViewModel: ObservableObject {
         }
         
         transactions = await FirebaseManager.shared.fetchTransactions(uid: uid)
+        categories = await FirebaseManager.shared.fetchCategories(uid: uid)
         isLoadingTransactions = false
         
     }
