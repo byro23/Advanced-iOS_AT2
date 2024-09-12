@@ -141,6 +141,7 @@ struct RegistrationView: View {
         }
         .padding(.bottom, 100)
         .navigationTitle("Registration")
+        .navigationBarTitleDisplayMode(.large)
         .onChange(of: authViewModel.authenticationState) { _, newState in
             if(newState == .authenticated) {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
