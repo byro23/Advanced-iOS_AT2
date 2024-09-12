@@ -15,33 +15,34 @@ struct ShortCardView: View {
     let imageName: String
     
     var body: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 12) {
             
             // Icon
             Image(systemName: imageName)
                 .resizable()
-                .frame(width: 30, height: 30)
+                .frame(width: 24, height: 24)
                 .foregroundStyle(fillColor)
-                .padding(10)
+                .padding(8)
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
             VStack(alignment: .leading) {
                 Text(title)
-                    .font(.headline)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
                     .foregroundStyle(.white)
                 
                 Text("$\(value)")
-                    .font(.title2)
+                    .font(.headline)
                     .fontWeight(.bold)
                     .foregroundStyle(.white)
             }
         }
-        .frame(maxWidth: 200)
-        .padding(10)
+        .frame(maxWidth: 160)
+        .padding(8)
         .background(fillColor)
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(radius: 5)
+        .shadow(radius: 4)
     }
 }
 

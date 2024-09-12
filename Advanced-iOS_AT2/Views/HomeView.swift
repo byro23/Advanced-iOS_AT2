@@ -22,19 +22,20 @@ struct HomeView: View {
                 VStack {
                     
                     HStack {
-                        Text("Hello, \(authViewModel.currentUser?.name ?? "Unauthenticated"),")
+                        Text("Hello, \(authViewModel.currentUser?.name ?? "Unauthenticated")")
                             .font(.title2)
                             .fontWeight(.semibold)
-                        .padding()
+                            .padding(.horizontal)
                         
                         Spacer()
                     }
+                    .padding(.top)
                     
                     HStack {
                         ShortCardView(fillColor: Color.moneyBrightGreenColor, title: "Income", value: "\(CurrencyUtils.centsToDollars(cents: viewModel.incomeTotal))", imageName: "arrowshape.down.circle.fill")
                         ShortCardView(fillColor: Color.red, title: "Expenses", value: "\(CurrencyUtils.centsToDollars(cents: viewModel.expenseTotal))", imageName: "arrowshape.up.circle.fill")
                     }
-                    .padding()
+                    .padding(.top)
                     
                     // Maybe expense/income here?
                     
@@ -42,10 +43,11 @@ struct HomeView: View {
                         Text("Your summary")
                             .font(.title2)
                             .fontWeight(.semibold)
+                            .padding(.horizontal)
                         Spacer()
                         
                     }
-                    .padding()
+                    .padding(.top)
                     
                     HStack {
                         PieChartView(data: Category.Mock_Categories)
@@ -56,14 +58,32 @@ struct HomeView: View {
                         Text("Recent Transactions")
                             .font(.title2)
                             .fontWeight(.semibold)
+                        
                         Spacer()
+                        
+                        Button {
+                            viewModel.addTestTransaction()
+                        } label: {
+                            Text("Add test")
+                                .font(.footnote)
+                        }
+                        
+                        Button {
+                            
+                        } label: {
+                            Text("See all")
+                        }
+                        .font(.footnote)
+                        .buttonStyle(.bordered)
+                        .buttonBorderShape(.capsule)
+                        
                     }
                     .padding()
                     
-                    TransactionCardView(transactions: $viewModel.transactions)
+                    TransactionCardView(transactions: $viewModel.transactions, isFetching: $viewModel.loadingTransactions)
                     
                     HStack {
-                        Text("My goals: ")
+                        Text("My goals")
                             .font(.title2)
                             .fontWeight(.semibold)
                         Spacer()
@@ -77,7 +97,12 @@ struct HomeView: View {
                     viewModel.name = authViewModel.currentUser?.name ?? "Unauthenticated"
                     viewModel.incomeTotal = authViewModel.currentUser?.income ?? 0
                     viewModel.expenseTotal = authViewModel.currentUser?.expenses ?? 0
+                    
+                    Task {
+                        await viewModel.fetchTransactions(uid: authViewModel.currentUser?.id ?? "")
+                    }
                 }
+                
             }
         }
         
@@ -90,4 +115,5 @@ struct HomeView: View {
 #Preview {
     HomeView()
         .environmentObject(AuthViewModel())
+        .applyMintBackground()
 }

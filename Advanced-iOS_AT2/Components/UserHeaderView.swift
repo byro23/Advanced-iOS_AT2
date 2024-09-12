@@ -37,7 +37,8 @@ struct UserHeaderView: View {
             }
             
         }
-        .padding()
+        .padding(.top)
+        .padding(.horizontal)
     }
 }
 

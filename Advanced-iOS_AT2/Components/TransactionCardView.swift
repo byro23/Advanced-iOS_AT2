@@ -10,6 +10,7 @@ import SwiftUI
 struct TransactionCardView: View {
     
     @Binding var transactions: [Transaction]
+    @Binding var isFetching : Bool
     
     var body: some View {
         VStack {
@@ -19,32 +20,48 @@ struct TransactionCardView: View {
                     .fontWeight(.semibold)
                     .foregroundStyle(.black) */
                 
-                LazyVStack(spacing: 25) {
-                    
+                
+                
+                LazyVStack(spacing: 1) {
+                    if(isFetching) {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                            .scaleEffect(1.5)
+                    }
+                    else {
+                        if(transactions.isEmpty) {
+                            Text("No transactions to show.")
+                        }
+                        else {
+                            // Showing the 7 most recent transactoins
+                            ForEach(transactions.prefix(6)) { transaction in
+                                TransactionRowView(transactionModel: transaction)
+                                Divider()
+                            }
+                        }
+                    }
                 }
                 
-                Spacer()
                 
-                Button {
+                /*Button {
                     
                 } label: {
                     Image(systemName: "arrow.up.right")
                         .resizable()
                         .frame(width: 17, height: 17)
                         .foregroundColor(.cyan)
-                }
+                } */
             }
-            .padding(.horizontal)
+            //.padding(.horizontal)
             //.padding(.trailing, 15)
-            .padding(.top, 15)
         }
         .background(.white)
         .cornerRadius(15)
-        .padding()
+        .padding(.horizontal)
         .shadow(color: Color.black.opacity(0.1), radius: 15, x:5, y: 5)
     }
 }
 
 #Preview {
-    TransactionCardView(transactions: .constant(Transaction.Mock_Transactions))
+    TransactionCardView(transactions: .constant(Transaction.Mock_Transactions), isFetching: .constant(false))
 }

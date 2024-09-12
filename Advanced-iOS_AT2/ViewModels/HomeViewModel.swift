@@ -16,7 +16,7 @@ class HomeViewModel: ObservableObject {
     @Published var transactions : [Transaction] = []
     @Published var loadingTransactions: Bool = true
     
-    init(name: String, expenseTotal: Int, incomeTotal: Int, uid: String) async {
+    init(name: String, expenseTotal: Int, incomeTotal: Int) {
         self.name = name
         self.expenseTotal = expenseTotal
         self.incomeTotal = incomeTotal
@@ -25,14 +25,19 @@ class HomeViewModel: ObservableObject {
     
     func fetchTransactions(uid: String) async {
         
-        do {
-            transactions = await FirebaseManager.shared.fetchTransactions(uid: uid)
+        if uid == "" {
+            transactions = Transaction.Mock_Transactions // For preview/testing
+            print("Unauthenticated - unable to fetch transactions.")
+            loadingTransactions = false
+            return
         }
+        
+        transactions = await FirebaseManager.shared.fetchTransactions(uid: uid)
         
     }
     
     func addTestTransaction() {
-        let testTransaction = Transaction.Mock_Transactions[0]
+        let testTransaction = Transaction(id: UUID().uuidString, name: "Test", type: TransactionType.debit, categoryId: "mock_cat_001", date: Date(), amount: CurrencyUtils.dollarsToCents(dollars: 9.99))
         
         // FirebaseManager.shared.addTransaction(transaction: testTransaction, uid: uid)
         

@@ -27,7 +27,8 @@ extension Transaction {
     
     static var Mock_Transactions: [Transaction] =
     [
-        .init(id: UUID().uuidString, name: "Netflix", type: TransactionType.debit, categoryId: "mock_cat_001", date: Date(), amount: CurrencyUtils.dollarsToCents(dollars: 9.99))
+        .init(id: UUID().uuidString, name: "Netflix", type: TransactionType.debit, categoryId: "mock_cat_001", date: Date(), amount: CurrencyUtils.dollarsToCents(dollars: 9.99)),
+        .init(id: UUID().uuidString, name: "Youtube Premium", type: TransactionType.debit, categoryId: "mock_cat_002", date: Date(), amount: CurrencyUtils.dollarsToCents(dollars: 11.99))
         
     ]
 }

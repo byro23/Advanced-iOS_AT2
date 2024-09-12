@@ -34,7 +34,7 @@ class FirebaseManager {
             
             
             let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
-            let user = User(id: authResult.user.uid, name: name, email: email, expenses: 0, income: 0)
+            let user = User(id: authResult.user.uid, name: name, email: email, expenses: 0, income: 0, transactions: [])
             let encodedUser = try Firestore.Encoder().encode(user)
             
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
@@ -77,7 +77,7 @@ class FirebaseManager {
     }
     
     func fetchTransactions(uid: String) async -> [Transaction] {
-        var transactions: [Transaction]
+        var transactions: [Transaction] = []
         
         let transactionsRef = db.collection("users").document(uid).collection("Transactions")
         do {
@@ -88,6 +88,7 @@ class FirebaseManager {
             print("Error fetching transactions: \(error)")
         }
         
+        // Returns empty array if an error is thrown
         return transactions
     }
     

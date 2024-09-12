@@ -33,13 +33,13 @@ struct TransactionRowView: View {
             Spacer()
             
             if(transactionModel.type == TransactionType.credit) {
-                Text("+ \(CurrencyUtils.centsToDollars(cents: transactionModel.amount))")
+                Text("+ $\(CurrencyUtils.centsToDollars(cents: transactionModel.amount))")
                     .font(.footnote)
                     .fontWeight(.bold)
                     .foregroundStyle(Color.moneyBrightGreenColor)
             }
             else {
-                Text("- \(CurrencyUtils.centsToDollars(cents: transactionModel.amount))")
+                Text("- $\(CurrencyUtils.centsToDollars(cents: transactionModel.amount))")
                     .font(.footnote)
                     .fontWeight(.bold)
                     .foregroundStyle(.red)
@@ -47,7 +47,7 @@ struct TransactionRowView: View {
             
             
         }
-        .padding()
+        .padding(12)
     }
 }
 

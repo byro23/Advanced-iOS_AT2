@@ -93,5 +93,18 @@ class AuthViewModel: ObservableObject {
         }
     }
     
+    // As of now, mainly used to prefetch transactions when logging in for better UX
+    func fetchTransactions() async {
+        
+        guard let id = currentUser?.id else {
+            print("Error: unauthenticated user.")
+            return
+        }
+        
+        let transactions = await FirebaseManager.shared.fetchTransactions(uid: id)
+        
+        currentUser?.transactions = transactions
+    }
+    
     
 }

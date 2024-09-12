@@ -19,7 +19,7 @@ struct UserView: View {
     var body: some View {
                     
         TabView(selection: $navigationController.currentTab) {
-            HomeView(uid: authViewModel.currentUser?.id ?? "")
+            HomeView()
                 .applyMintBackground()
                 .tabItem {
                     Label("Home", systemImage: "house")
