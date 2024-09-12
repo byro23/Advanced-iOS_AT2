@@ -36,8 +36,6 @@ struct LoginView : View {
                             viewModel.email = ""
                             viewModel.password = ""
                             
-                            await authViewModel.fetchTransactions()
-                            
                             navigationController.path.append(NavigationController.AppScreen.tab)
                         }
                     }

@@ -94,7 +94,7 @@ class AuthViewModel: ObservableObject {
     }
     
     // As of now, mainly used to prefetch transactions when logging in for better UX
-    func fetchTransactions() async {
+    /*func fetchTransactions() async {
         
         guard let id = currentUser?.id else {
             print("Error: unauthenticated user.")
@@ -102,9 +102,7 @@ class AuthViewModel: ObservableObject {
         }
         
         let transactions = await FirebaseManager.shared.fetchTransactions(uid: id)
-        
-        currentUser?.transactions = transactions
-    }
+    } */
     
     
 }

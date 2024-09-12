@@ -80,7 +80,7 @@ struct HomeView: View {
                     }
                     .padding()
                     
-                    TransactionCardView(transactions: $viewModel.transactions, isFetching: $viewModel.loadingTransactions)
+                    TransactionCardView(transactions: $viewModel.transactions, isFetching: $viewModel.isLoadingTransactions)
                     
                     HStack {
                         Text("My goals")

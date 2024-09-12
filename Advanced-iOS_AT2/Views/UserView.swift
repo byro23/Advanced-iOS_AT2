@@ -25,7 +25,22 @@ struct UserView: View {
                     Label("Home", systemImage: "house")
                 }
                 .tag(NavigationController.Tab.home)
-                
+            TransactionsView()
+                .applyMintBackground()
+                .tabItem {
+                    Label {
+                        Text("Transactions")
+                    } icon: {
+                        if(navigationController.currentTab == .transactions) {
+                            Image("handshake-blue")
+                        }
+                        else {
+                            Image("handshake-grey")
+                        }
+                        
+                    }
+                }
+                .tag(NavigationController.Tab.transactions)
         }
     }
 }

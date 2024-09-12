@@ -31,6 +31,8 @@ struct TransactionCardView: View {
                     else {
                         if(transactions.isEmpty) {
                             Text("No transactions to show.")
+                                .font(.headline)
+                                .padding()
                         }
                         else {
                             // Showing the 7 most recent transactoins

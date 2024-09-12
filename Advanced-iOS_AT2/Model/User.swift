@@ -14,10 +14,8 @@ struct User: Identifiable, Codable {
     var expenses: Int // Stored as cents
     var income: Int // Stored as cents
     
-    var transactions: [Transaction]
-    
 }
 
 extension User {
-    static var Mock_User = User(id: UUID().uuidString, name: "Geoff", email: "test@gmail.com", expenses: CurrencyUtils.dollarsToCents(dollars: 250), income: CurrencyUtils.dollarsToCents(dollars: 500), transactions: Transaction.Mock_Transactions)
+    static var Mock_User = User(id: UUID().uuidString, name: "Geoff", email: "test@gmail.com", expenses: CurrencyUtils.dollarsToCents(dollars: 250), income: CurrencyUtils.dollarsToCents(dollars: 500))
 }

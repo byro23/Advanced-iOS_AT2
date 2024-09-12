@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class HomeViewModel: ObservableObject {
     
     @Published var name: String
@@ -14,7 +15,7 @@ class HomeViewModel: ObservableObject {
     @Published var incomeTotal: Int
     @Published var currentBalance: Int
     @Published var transactions : [Transaction] = []
-    @Published var loadingTransactions: Bool = true
+    @Published var isLoadingTransactions: Bool = true
     
     init(name: String, expenseTotal: Int, incomeTotal: Int) {
         self.name = name
@@ -28,11 +29,12 @@ class HomeViewModel: ObservableObject {
         if uid == "" {
             transactions = Transaction.Mock_Transactions // For preview/testing
             print("Unauthenticated - unable to fetch transactions.")
-            loadingTransactions = false
+            isLoadingTransactions = false
             return
         }
         
         transactions = await FirebaseManager.shared.fetchTransactions(uid: uid)
+        isLoadingTransactions = false
         
     }
     
