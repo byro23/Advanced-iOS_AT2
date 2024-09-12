@@ -130,7 +130,7 @@ struct RegistrationView: View {
                 .opacity(viewModel.formIsValid ? 1.0 : 0.5)
             }
             else {
-                Text("Registration successful! \($viewModel.loadingMessage)")
+                Text("Registration successful!")
                     .font(.headline)
             }
         }

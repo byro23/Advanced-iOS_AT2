@@ -36,7 +36,7 @@ struct TransactionCardView: View {
                         }
                         else {
                             // Showing the 7 most recent transactoins
-                            ForEach(transactions.prefix(6)) { transaction in
+                            ForEach(transactions.sorted {$0.date > $1.date}.prefix(6)) { transaction in
                                 TransactionRowView(transactionModel: transaction)
                                 Divider()
                             }

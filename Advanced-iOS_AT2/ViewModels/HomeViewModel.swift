@@ -28,6 +28,7 @@ class HomeViewModel: ObservableObject {
     
     func fetchData(uid: String) async {
         
+        // This is mainly for preview
         if uid == "" {
             transactions = Transaction.Mock_Transactions // For preview/testing
             print("Unauthenticated - unable to fetch transactions.")
@@ -35,8 +36,11 @@ class HomeViewModel: ObservableObject {
             return
         }
         
+        // Fetch transactions
         transactions = await FirebaseManager.shared.fetchTransactions(uid: uid)
+        // Fetch categories
         categories = await FirebaseManager.shared.fetchCategories(uid: uid)
+        // Turn off loading indicator
         isLoadingTransactions = false
         
     }
