@@ -57,9 +57,7 @@ struct TransactionsView: View {
                         }
                     }
                     else {
-                        ForEach(viewModel.filteredTransactions) { transaction in
-                            TransactionRowView(transactionModel: transaction)
-                        }
+                        TransactionCardView(transactions: $viewModel.filteredTransactions, isFetching: $viewModel.isLoadingTransactions)
                     }
                 }
             }
@@ -67,12 +65,18 @@ struct TransactionsView: View {
         .navigationTitle("Transactions")
         .onAppear {
             Task {
-                viewModel.fetchTransactions
+                await viewModel.fetchTransactions(uid: authViewModel.currentUser?.id ?? "")
             }
         }
         .sheet(isPresented: $viewModel.showAddTransactionSheet, content: {
-            AddTransactionView()
+            AddTransactionView(transactions: $viewModel.transactions)
         })
+        .onChange(of: viewModel.transactions) {
+            viewModel.applyFilter()
+        }
+        .onChange(of: viewModel.filterText) {
+            viewModel.applyFilter()
+        }
     }
 }
 

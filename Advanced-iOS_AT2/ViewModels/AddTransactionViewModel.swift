@@ -15,6 +15,8 @@ class AddTransactionViewModel: ObservableObject {
     @Published var selectedCategory: Category = Category(id: "", name: "", totalAmount: 0)
     @Published var userCategories: [Category] = []
     
+    let transactionTypes = ["Expense", "Income"]
+    
     func fetchUserCategories(uid: String) async {
         
         // Preview case (prevents fetch)
@@ -27,6 +29,14 @@ class AddTransactionViewModel: ObservableObject {
         userCategories = await FirebaseManager.shared.fetchCategories(uid: uid)
         
         selectedCategory = userCategories[0]
+    }
+    
+    func AddTransaction(uid: String) {
+        
+        // Preview case
+        if uid == "" {
+            
+        }
     }
     
 }

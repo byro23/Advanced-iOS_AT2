@@ -32,7 +32,7 @@ struct TransactionRowView: View {
             
             Spacer()
             
-            if(transactionModel.type == TransactionType.credit) {
+            if(transactionModel.type == TransactionType.income) {
                 Text("+ $\(CurrencyUtils.centsToDollars(cents: transactionModel.amount))")
                     .font(.footnote)
                     .fontWeight(.bold)

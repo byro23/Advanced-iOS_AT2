@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Transaction: Identifiable, Codable {
+struct Transaction: Identifiable, Codable, Equatable {
     
     let id: String
     var name: String // E.g., Netflix
@@ -19,16 +19,16 @@ struct Transaction: Identifiable, Codable {
 }
 
 enum TransactionType: String, Codable {
-    case debit = "Debit"
-    case credit = "Credit"
+    case expense = "Expense"
+    case income = "Income"
 }
 
 extension Transaction {
     
     static var Mock_Transactions: [Transaction] =
     [
-        .init(id: UUID().uuidString, name: "Netflix", type: TransactionType.debit, categoryId: "mock_cat_001", date: Date(), amount: CurrencyUtils.dollarsToCents(dollars: 9.99)),
-        .init(id: UUID().uuidString, name: "Youtube Premium", type: TransactionType.debit, categoryId: "mock_cat_002", date: Date(), amount: CurrencyUtils.dollarsToCents(dollars: 11.99))
+        .init(id: UUID().uuidString, name: "Netflix", type: TransactionType.expense, categoryId: "mock_cat_001", date: Date(), amount: CurrencyUtils.dollarsToCents(dollars: 9.99)),
+        .init(id: UUID().uuidString, name: "Youtube Premium", type: TransactionType.expense, categoryId: "mock_cat_002", date: Date(), amount: CurrencyUtils.dollarsToCents(dollars: 11.99))
         
     ]
 }

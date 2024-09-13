@@ -17,19 +17,6 @@ class TransactionsViewModel: ObservableObject {
     
     @Published var showAddTransactionSheet: Bool = false
     
-    init() {
-        
-        $filterText
-                .receive(on: RunLoop.main) // Ensuring we're on the main thread
-                .map { filter in
-                    guard !filter.isEmpty else { return self.transactions }
-                    return self.transactions.filter { transaction in
-                        self.isMatch(transaction, searchText: filter)
-                    }
-                }
-                .assign(to: &$filteredTransactions)
-    }
-    
     private func isMatch(_ transaction: Transaction, searchText: String) -> Bool {
         let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss" // Specifying the specific format for date input filtering
@@ -42,8 +29,26 @@ class TransactionsViewModel: ObservableObject {
     }
     
     func fetchTransactions(uid: String) async {
+        // Preview case
+        if uid == "" {
+            transactions = Transaction.Mock_Transactions
+            isLoadingTransactions = false
+            return
+        }
+        
         transactions = await FirebaseManager.shared.fetchTransactions(uid: uid)
         isLoadingTransactions = false
+    }
+    
+    func applyFilter() {
+        if(filterText.isEmpty) {
+            filteredTransactions = transactions
+        }
+        else {
+            filteredTransactions = transactions.filter { transaction in
+                isMatch(transaction, searchText: filterText)
+            }
+        }
     }
     
 }
