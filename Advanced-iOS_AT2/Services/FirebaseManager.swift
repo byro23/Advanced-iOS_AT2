@@ -88,7 +88,7 @@ class FirebaseManager {
         
     }
     
-    func addTransaction(transaction: Transaction, uid: String) {
+    func addTransaction(transaction: Transaction, uid: String) throws {
         let transactionsRef = db.collection("users").document(uid).collection("transactions")
         
         do {

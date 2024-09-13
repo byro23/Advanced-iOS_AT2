@@ -45,7 +45,7 @@ struct TransactionsView: View {
             
             ScrollView {
                 LazyVStack {
-                    if(viewModel.transactions.isEmpty) {
+                    if(viewModel.transactions.isEmpty && !viewModel.isLoadingTransactions) {
                         Text("No transactions to show.")
                             .font(.headline)
                             .padding()
@@ -55,6 +55,12 @@ struct TransactionsView: View {
                         } label: {
                             Text("Manually add transaction?")
                         }
+                    }
+                    else if viewModel.isLoadingTransactions {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                            .scaleEffect(1.5)
+                            .padding()
                     }
                     else {
                         TransactionCardView(transactions: $viewModel.filteredTransactions, isFetching: $viewModel.isLoadingTransactions)

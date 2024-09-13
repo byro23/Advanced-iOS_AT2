@@ -13,12 +13,13 @@ class AddTransactionViewModel: ObservableObject {
     @Published var transactionName: String = ""
     @Published var transactionAmount: String = ""
     @Published var selectedCategory: Category = Category(id: "", name: "", totalAmount: 0)
-    @Published var selectedType = "Expense"
+    @Published var selectedType: TransactionType = .expense
+    @Published var selectedDate: Date = Date()
     
     
     @Published var userCategories: [Category] = []
     
-    let transactionTypes = ["Expense", "Income"]
+    let transactionTypes: [TransactionType] = [.expense, .income]
     
     func fetchUserCategories(uid: String) async {
         
@@ -34,13 +35,29 @@ class AddTransactionViewModel: ObservableObject {
         selectedCategory = userCategories[0]
     }
     
-    func AddTransaction(uid: String) {
+    func AddTransaction(uid: String) -> Transaction? {
         
-        print("Test")
-        // Preview case
-        if uid == "" {
-            
+        guard let parsedTransactionAmount = Decimal(string: transactionAmount) else {
+            print("Transaction amount cannot be parsed as decimal.")
+            return nil
         }
+        
+        let newTransaction = Transaction(id: UUID().uuidString, name: transactionName, type: selectedType, categoryId: selectedCategory.id, date: selectedDate, amount: CurrencyUtils.dollarsToCents(dollars: parsedTransactionAmount))
+        
+        if(uid == "") {
+            return newTransaction
+        }
+        
+        do {
+            try FirebaseManager.shared.addTransaction(transaction: newTransaction, uid: uid)
+            return newTransaction
+        }
+        catch {
+            return nil
+        }
+        
+        
+        
     }
     
 }

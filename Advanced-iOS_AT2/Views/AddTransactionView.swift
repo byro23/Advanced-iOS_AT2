@@ -31,9 +31,16 @@ struct AddTransactionView: View {
                 }
                 
                 Section {
+                    DatePicker("Select date", selection: $viewModel.selectedDate, in: ...Date(), displayedComponents: [.date, .hourAndMinute])
+                        .datePickerStyle(.automatic)
+                } header: {
+                    Text("Transaction Date")
+                }
+                
+                Section {
                     Picker("Select type", selection: $viewModel.selectedType) {
                         ForEach(viewModel.transactionTypes, id: \.self) { type in
-                            Text(type).tag(type)
+                            Text(type.rawValue).tag(type)
                         }
                     }
                 } header: {
@@ -58,7 +65,12 @@ struct AddTransactionView: View {
                 
                 Section {
                     Button("Save Transaction") {
-                        viewModel.AddTransaction(uid: authViewModel.currentUser?.id ?? "")
+                        if let newTransaction = viewModel.AddTransaction(uid: authViewModel.currentUser?.id ?? "") {
+                            
+                            transactions.append(newTransaction)
+                            
+                            transactions = transactions.sorted {$0.date > $1.date}
+                        }
                     }
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .center)
@@ -71,7 +83,6 @@ struct AddTransactionView: View {
         }
         .onAppear {
             Task {
-                // let newTransaction = Transaction(id: <#T##String#>, name: <#T##String#>, type: <#T##TransactionType#>, categoryId: <#T##String#>, date: <#T##Date#>, amount: <#T##Int#>)
                 await viewModel.fetchUserCategories(uid: authViewModel.currentUser?.id ?? "")
             }
             
