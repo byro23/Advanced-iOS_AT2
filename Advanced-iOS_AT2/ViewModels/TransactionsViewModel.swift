@@ -15,6 +15,8 @@ class TransactionsViewModel: ObservableObject {
     @Published var filterText: String = ""
     @Published var isLoadingTransactions: Bool = true
     
+    @Published var showAddTransactionSheet: Bool = false
+    
     init() {
         
         $filterText

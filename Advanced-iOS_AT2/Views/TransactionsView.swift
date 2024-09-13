@@ -27,7 +27,7 @@ struct TransactionsView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .font(.subheadline)
                 Button {
-                
+                    viewModel.showAddTransactionSheet = true
                 } label: {
                      Text("+")
                         .fontWeight(.semibold)
@@ -70,6 +70,9 @@ struct TransactionsView: View {
                 viewModel.fetchTransactions
             }
         }
+        .sheet(isPresented: $viewModel.showAddTransactionSheet, content: {
+            AddTransactionView()
+        })
     }
 }
 

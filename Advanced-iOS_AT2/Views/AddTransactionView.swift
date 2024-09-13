@@ -28,13 +28,20 @@ struct AddTransactionView: View {
                     
                 }
                 
-                Section(header: Text("Tranaction Category")) {
+                Section(header: Text("Transaction Category")) {
                     Picker("Select Category", selection: $viewModel.selectedCategory) {
                         ForEach(viewModel.userCategories, id: \.self) { category in
                             Text(category.name).tag(category)
                         }
                     }
                     .pickerStyle(MenuPickerStyle())
+                    
+                    Button {
+                        
+                    } label: {
+                        Text("Add new category")
+                    }
+
                 }
                 
                 Section {
