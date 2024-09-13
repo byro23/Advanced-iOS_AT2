@@ -13,6 +13,9 @@ class AddTransactionViewModel: ObservableObject {
     @Published var transactionName: String = ""
     @Published var transactionAmount: String = ""
     @Published var selectedCategory: Category = Category(id: "", name: "", totalAmount: 0)
+    @Published var selectedType = "Expense"
+    
+    
     @Published var userCategories: [Category] = []
     
     let transactionTypes = ["Expense", "Income"]
@@ -33,6 +36,7 @@ class AddTransactionViewModel: ObservableObject {
     
     func AddTransaction(uid: String) {
         
+        print("Test")
         // Preview case
         if uid == "" {
             

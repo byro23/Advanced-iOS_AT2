@@ -20,7 +20,7 @@ struct AddTransactionView: View {
             List {
                 Section(header: Text("Transaction Details")) {
                     TextField("Transaction Name", text: $viewModel.transactionName)
-                    TextField("Transaction Amount $", text: $viewModel.transactionAmount)
+                    TextField("Transaction Amount ($)", text: $viewModel.transactionAmount)
                         .keyboardType(.decimalPad)
                         .onChange(of: viewModel.transactionAmount) { oldValue, newValue in
                             if let amount = Double(newValue), amount < 0 {
@@ -31,13 +31,17 @@ struct AddTransactionView: View {
                 }
                 
                 Section {
-                    
+                    Picker("Select type", selection: $viewModel.selectedType) {
+                        ForEach(viewModel.transactionTypes, id: \.self) { type in
+                            Text(type).tag(type)
+                        }
+                    }
                 } header: {
                     Text("Transaction Type")
                 }
                 
                 Section(header: Text("Transaction Category")) {
-                    Picker("Select Category", selection: $viewModel.selectedCategory) {
+                    Picker("Select category", selection: $viewModel.selectedCategory) {
                         ForEach(viewModel.userCategories, id: \.self) { category in
                             Text(category.name).tag(category)
                         }
@@ -54,7 +58,6 @@ struct AddTransactionView: View {
                 
                 Section {
                     Button("Save Transaction") {
-                        // Add transaction logic here
                         viewModel.AddTransaction(uid: authViewModel.currentUser?.id ?? "")
                     }
                     .font(.headline)
