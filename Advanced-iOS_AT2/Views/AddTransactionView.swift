@@ -9,43 +9,57 @@ import SwiftUI
 
 struct AddTransactionView: View {
     
-    @State private var transactionName: String = ""
-    @State private var transactionAmount: String = ""
-    @State var transactionCategory: [Category]
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @StateObject var viewModel = AddTransactionViewModel()
     
     var body: some View {
-        List {
-            Section(header: Text("Transaction Details")) {
-                TextField("Transaction Name", text: $transactionName)
-                TextField("Transaction Amount", text: $transactionAmount)
-                    .keyboardType(.decimalPad)
-                    .onChange(of: transactionAmount) { oldValue, newValue in
-                        if let amount = Double(newValue), amount < 0 {
-                            transactionAmount = "" // Clear the field if the input is invalid
+        
+        VStack {
+            List {
+                Section(header: Text("Transaction Details")) {
+                    TextField("Transaction Name", text: $viewModel.transactionName)
+                    TextField("Transaction Amount", text: $viewModel.transactionAmount)
+                        .keyboardType(.decimalPad)
+                        .onChange(of: viewModel.transactionAmount) { oldValue, newValue in
+                            if let amount = Double(newValue), amount < 0 {
+                                viewModel.transactionAmount = "" // Clear the field if the input is invalid
+                            }
+                        }
+                    
+                }
+                
+                Section(header: Text("Tranaction Category")) {
+                    Picker("Select Category", selection: $viewModel.selectedCategory) {
+                        ForEach(viewModel.userCategories, id: \.self) { category in
+                            Text(category.name).tag(category)
                         }
                     }
-                
-            }
-            
-            Section(header: Text("Tranaction Category")) {
-                
-            }
-            
-            Section {
-                Button("Save Transaction") {
-                    // Add transaction logic here
+                    .pickerStyle(MenuPickerStyle())
                 }
-                .font(.headline)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding()
-                .background(Color.green)
-                .foregroundColor(.white)
-                .cornerRadius(10)
+                
+                Section {
+                    Button("Save Transaction") {
+                        // Add transaction logic here
+                    }
+                    .font(.headline)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding()
+                    .background(Color.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }
             }
+        }
+        .onAppear {
+            Task {
+                await viewModel.fetchUserCategories(uid: authViewModel.currentUser?.id ?? "")
+            }
+            
         }
     }
 }
 
 #Preview {
-    AddTransactionView(transactionCategory: Category.Default_Categories)
+    AddTransactionView()
+        .environmentObject(AuthViewModel())
 }

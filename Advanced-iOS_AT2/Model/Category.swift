@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category: Identifiable, Codable, Hashable {
+struct Category: Identifiable, Codable, Hashable, Equatable {
     let id: String
     var name: String
     var totalAmount: Int // Stored as cents
