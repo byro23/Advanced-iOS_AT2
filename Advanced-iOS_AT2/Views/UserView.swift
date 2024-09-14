@@ -25,6 +25,7 @@ struct UserView: View {
                     Label("Home", systemImage: "house")
                 }
                 .tag(NavigationController.Tab.home)
+            
             TransactionsView()
                 .applyMintBackground()
                 .tabItem {
@@ -41,6 +42,13 @@ struct UserView: View {
                     }
                 }
                 .tag(NavigationController.Tab.transactions)
+            
+            CategoriesView()
+                .applyMintBackground()
+                .tabItem {
+                    Label(
+                }
+            
         }
     }
 }

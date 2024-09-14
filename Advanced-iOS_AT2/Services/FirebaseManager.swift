@@ -158,4 +158,22 @@ class FirebaseManager {
         
     }
     
+    func fetchDocuments<T: Decodable>(uid: String, collectionName: String, as type: T.Type) async throws -> [T] {
+        
+        var documents: [T] = []
+        
+        let collectionRef = db.collection("users").document(uid).collection(collectionName)
+                
+        let querySnapshot = try await collectionRef.getDocuments()
+        documents = try querySnapshot.documents.map { try $0.data(as: T.self) }
+        
+        return documents  // Returns empty array if error occurs
+    }
+    
+    func deleteDocument(uid: String, collectionName: String, documentId: String) async throws {
+        let documentRef = db.collection("users").document(uid).collection(collectionName).document(documentId)
+        
+        try await documentRef.delete()
+    }
+    
 }
