@@ -75,7 +75,7 @@ struct TransactionsView: View {
             }
         }
         .sheet(isPresented: $viewModel.showAddTransactionSheet, content: {
-            AddTransactionView(transactions: $viewModel.transactions)
+            AddTransactionView(transactions: $viewModel.transactions, isSheetShowing: $viewModel.showAddTransactionSheet)
         })
         .onChange(of: viewModel.transactions) {
             viewModel.applyFilter()

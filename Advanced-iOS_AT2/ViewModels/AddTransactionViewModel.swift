@@ -16,13 +16,16 @@ class AddTransactionViewModel: ObservableObject {
     @Published var selectedType: TransactionType = .expense
     @Published var selectedDate: Date = Date()
     
+    @Published var loading: Bool = false
+    @Published var success: Bool = false
+    @Published var inputError: Bool = false
+    
     
     @Published var userCategories: [Category] = []
     
     let transactionTypes: [TransactionType] = [.expense, .income]
     
     func fetchUserCategories(uid: String) async {
-        
         // Preview case (prevents fetch)
         if uid == "" {
             userCategories = Category.Default_Categories
@@ -37,22 +40,35 @@ class AddTransactionViewModel: ObservableObject {
     
     func AddTransaction(uid: String) -> Transaction? {
         
+        loading = true
+        
+        if transactionName.isEmpty || transactionAmount.isEmpty {
+            inputError = true
+        }
+        
         guard let parsedTransactionAmount = Decimal(string: transactionAmount) else {
             print("Transaction amount cannot be parsed as decimal.")
+            loading = false
             return nil
         }
         
         let newTransaction = Transaction(id: UUID().uuidString, name: transactionName, type: selectedType, categoryId: selectedCategory.id, date: selectedDate, amount: CurrencyUtils.dollarsToCents(dollars: parsedTransactionAmount))
         
         if(uid == "") {
+            loading = false
+            success = true
             return newTransaction
+            
         }
         
         do {
             try FirebaseManager.shared.addTransaction(transaction: newTransaction, uid: uid)
+            loading = false
+            success = true
             return newTransaction
         }
         catch {
+            loading = false
             return nil
         }
         

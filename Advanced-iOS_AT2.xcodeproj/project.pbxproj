@@ -23,6 +23,7 @@
 		C14D6DA92C92B0A9001BF41D /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D6DA82C92B0A9001BF41D /* GoalsView.swift */; };
 		C14D6DAB2C92BA25001BF41D /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D6DAA2C92BA25001BF41D /* AddTransactionView.swift */; };
 		C18277632C93CFC0004E656C /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18277622C93CFC0004E656C /* AddTransactionViewModel.swift */; };
+		C18277652C9507E6004E656C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C18277642C9507E6004E656C /* Lottie */; };
 		C19E5DD02C856F7600320C1F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DCF2C856F7600320C1F /* HomeView.swift */; };
 		C19E5DD22C856FAE00320C1F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD12C856FAE00320C1F /* NavigationController.swift */; };
 		C19E5DD42C856FC600320C1F /* TransactionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD32C856FC600320C1F /* TransactionCardView.swift */; };
@@ -43,7 +44,6 @@
 		C1E37FD72C880890005470F3 /* Money_drop_Lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = C1E37FD62C880890005470F3 /* Money_drop_Lottie.json */; };
 		C1E37FD92C8808A0005470F3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E37FD82C8808A0005470F3 /* Constants.swift */; };
 		C1E37FDB2C8808D1005470F3 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E37FDA2C8808D1005470F3 /* LottieView.swift */; };
-		C1E37FDE2C88093A005470F3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C1E37FDD2C88093A005470F3 /* Lottie */; };
 		C1E37FE02C8810EC005470F3 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E37FDF2C8810EC005470F3 /* LandingViewModel.swift */; };
 		C1E37FE22C8826D5005470F3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E37FE12C8826D5005470F3 /* LoginView.swift */; };
 		C1E37FE42C882712005470F3 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E37FE32C882712005470F3 /* InputView.swift */; };
@@ -101,7 +101,7 @@
 				C19E5DE92C86D40200320C1F /* FirebaseAnalytics in Frameworks */,
 				C19E5DEC2C86D4AF00320C1F /* FirebaseAuth in Frameworks */,
 				C19E5DEE2C86D4AF00320C1F /* FirebaseFirestore in Frameworks */,
-				C1E37FDE2C88093A005470F3 /* Lottie in Frameworks */,
+				C18277652C9507E6004E656C /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +261,7 @@
 				C19E5DE82C86D40200320C1F /* FirebaseAnalytics */,
 				C19E5DEB2C86D4AF00320C1F /* FirebaseAuth */,
 				C19E5DED2C86D4AF00320C1F /* FirebaseFirestore */,
-				C1E37FDD2C88093A005470F3 /* Lottie */,
+				C18277642C9507E6004E656C /* Lottie */,
 			);
 			productName = "Advanced-iOS_AT2";
 			productReference = C10859C52C82B1990011E6D5 /* Advanced-iOS_AT2.app */;
@@ -581,6 +581,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C18277642C9507E6004E656C /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1E37FDC2C88093A005470F3 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		C19E5DE82C86D40200320C1F /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C19E5DE72C86D40200320C1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -595,11 +600,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C19E5DE72C86D40200320C1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
-		};
-		C1E37FDD2C88093A005470F3 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C1E37FDC2C88093A005470F3 /* XCRemoteSwiftPackageReference "lottie-spm" */;
-			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

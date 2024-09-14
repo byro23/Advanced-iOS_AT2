@@ -13,6 +13,7 @@ struct AddTransactionView: View {
     @StateObject var viewModel = AddTransactionViewModel()
     
     @Binding var transactions: [Transaction]
+    @Binding var isSheetShowing : Bool
     
     var body: some View {
         
@@ -64,20 +65,29 @@ struct AddTransactionView: View {
                 }
                 
                 Section {
-                    Button("Save Transaction") {
-                        if let newTransaction = viewModel.AddTransaction(uid: authViewModel.currentUser?.id ?? "") {
-                            
-                            transactions.append(newTransaction)
-                            
-                            transactions = transactions.sorted {$0.date > $1.date}
-                        }
+                    if(viewModel.loading) {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                            .scaleEffect(1.5)
+                            .padding()
                     }
-                    .font(.headline)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+                    else {
+                        Button("Save Transaction") {
+                            if let newTransaction = viewModel.AddTransaction(uid: authViewModel.currentUser?.id ?? "") {
+                                
+                                transactions.append(newTransaction)
+                                
+                                transactions = transactions.sorted {$0.date > $1.date}
+                            }
+                        }
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding()
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                    }
+                    
                 }
             }
         }
@@ -87,10 +97,20 @@ struct AddTransactionView: View {
             }
             
         }
+        .alert("Success!", isPresented: $viewModel.success) {
+            Button("Ok", role: .cancel) {
+                isSheetShowing = false
+            }
+        }
+        .alert("Please complete all fields.", isPresented: $viewModel.inputError) {
+            Button("Understood", role: .cancel) {
+                viewModel.inputError = false
+            }
+        }
     }
 }
 
 #Preview {
-    AddTransactionView(transactions: .constant(Transaction.Mock_Transactions))
+    AddTransactionView(transactions: .constant(Transaction.Mock_Transactions), isSheetShowing: .constant(false))
         .environmentObject(AuthViewModel())
 }

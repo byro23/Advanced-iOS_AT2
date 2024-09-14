@@ -8,6 +8,13 @@
 import Foundation
 import SwiftUI
 
+enum NetworkStates: Equatable {
+    case idle
+    case loading
+    case success
+    case failure
+}
+
 struct CurrencyUtils {
     static func centsToDollars(cents: Int) -> Decimal {
         return Decimal(cents) / 100
