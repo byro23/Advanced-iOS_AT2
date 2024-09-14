@@ -24,6 +24,8 @@
 		C14D6DAB2C92BA25001BF41D /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D6DAA2C92BA25001BF41D /* AddTransactionView.swift */; };
 		C18277632C93CFC0004E656C /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18277622C93CFC0004E656C /* AddTransactionViewModel.swift */; };
 		C18277652C9507E6004E656C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C18277642C9507E6004E656C /* Lottie */; };
+		C18277672C950AF1004E656C /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18277662C950AF1004E656C /* AddCategoryView.swift */; };
+		C18277692C950E3F004E656C /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18277682C950E3F004E656C /* AddCategoryViewModel.swift */; };
 		C19E5DD02C856F7600320C1F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DCF2C856F7600320C1F /* HomeView.swift */; };
 		C19E5DD22C856FAE00320C1F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD12C856FAE00320C1F /* NavigationController.swift */; };
 		C19E5DD42C856FC600320C1F /* TransactionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD32C856FC600320C1F /* TransactionCardView.swift */; };
@@ -69,6 +71,8 @@
 		C14D6DA82C92B0A9001BF41D /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		C14D6DAA2C92BA25001BF41D /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
 		C18277622C93CFC0004E656C /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
+		C18277662C950AF1004E656C /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
+		C18277682C950E3F004E656C /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
 		C19E5DCF2C856F7600320C1F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C19E5DD12C856FAE00320C1F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C19E5DD32C856FC600320C1F /* TransactionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCardView.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				C141D19A2C8A985F0081F796 /* RegistrationView.swift */,
 				C14D6DA82C92B0A9001BF41D /* GoalsView.swift */,
 				C14D6DAA2C92BA25001BF41D /* AddTransactionView.swift */,
+				C18277662C950AF1004E656C /* AddCategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				C141D19C2C8A9E350081F796 /* RegistrationViewModel.swift */,
 				C14D6DA62C929D63001BF41D /* TransactionsViewModel.swift */,
 				C18277622C93CFC0004E656C /* AddTransactionViewModel.swift */,
+				C18277682C950E3F004E656C /* AddCategoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C18277692C950E3F004E656C /* AddCategoryViewModel.swift in Sources */,
 				C10859C92C82B1990011E6D5 /* Advanced_iOS_AT2App.swift in Sources */,
 				C141D1952C8A6C730081F796 /* GoalCardView.swift in Sources */,
 				C106EB272C9105000074FBDA /* TransactionRowView.swift in Sources */,
@@ -352,6 +359,7 @@
 				C19E5DF22C86E50C00320C1F /* AuthViewModel.swift in Sources */,
 				C19E5DE42C86CBD200320C1F /* User.swift in Sources */,
 				C14D6DA72C929D63001BF41D /* TransactionsViewModel.swift in Sources */,
+				C18277672C950AF1004E656C /* AddCategoryView.swift in Sources */,
 				C14D6DA92C92B0A9001BF41D /* GoalsView.swift in Sources */,
 				C19E5DF42C87FC4800320C1F /* TransactionsView.swift in Sources */,
 				C106EB252C904F1B0074FBDA /* Transaction.swift in Sources */,

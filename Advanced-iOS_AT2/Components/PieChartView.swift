@@ -17,7 +17,7 @@ struct PieChartView: View {
             HStack {
                 Chart(data, id: \.id) { item in
                     SectorMark(
-                        angle: .value("Value", item.totalAmount),
+                        angle: .value("Value", 1),
                         angularInset: 0.5
                     )
                     .foregroundStyle(by: .value("Category", item.name))

@@ -56,11 +56,14 @@ struct AddTransactionView: View {
                     }
                     .pickerStyle(.automatic)
                     
+                    AddCategoryView(categories: $viewModel.userCategories, selectedCategory: $viewModel.selectedCategory)
+                    
+                    /*
                     Button {
                         
                     } label: {
                         Text("Add new category")
-                    }
+                    } */
 
                 }
                 
@@ -73,6 +76,7 @@ struct AddTransactionView: View {
                     }
                     else {
                         Button("Save Transaction") {
+                            
                             if let newTransaction = viewModel.AddTransaction(uid: authViewModel.currentUser?.id ?? "") {
                                 
                                 transactions.append(newTransaction)
@@ -97,11 +101,11 @@ struct AddTransactionView: View {
             }
             
         }
-        .alert("Success!", isPresented: $viewModel.success) {
+        /*.alert("Success!", isPresented: $viewModel.success) {
             Button("Ok", role: .cancel) {
                 isSheetShowing = false
             }
-        }
+        } */
         .alert("Please complete all fields.", isPresented: $viewModel.inputError) {
             Button("Understood", role: .cancel) {
                 viewModel.inputError = false

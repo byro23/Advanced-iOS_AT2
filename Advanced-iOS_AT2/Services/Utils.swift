@@ -15,6 +15,11 @@ enum NetworkStates: Equatable {
     case failure
 }
 
+enum DataModels: String {
+    case transaction = "transaction"
+    case category = "category"
+}
+
 struct CurrencyUtils {
     static func centsToDollars(cents: Int) -> Decimal {
         return Decimal(cents) / 100

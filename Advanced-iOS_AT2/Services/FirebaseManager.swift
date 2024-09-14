@@ -77,8 +77,7 @@ class FirebaseManager {
             // Dictionary representation
             let categoryData: [String:Any] = [
                 "id" : category.id,
-                "name" : category.name,
-                "totalAmount": category.totalAmount
+                "name" : category.name
             ]
             
             batch.setData(categoryData, forDocument: newCatRef)
@@ -103,6 +102,23 @@ class FirebaseManager {
             print("Error adding transaction for \(uid) to Firestore: \(error.localizedDescription)")
         }
         
+    }
+    
+    // Generic function to add any Encodable object to Firestore
+    func addDocument<T: Encodable>(object: T, toCollection collection: String, forUser uid: String) throws {
+        let collectionRef = db.collection("users").document(uid).collection(collection)
+        
+        do {
+            try collectionRef.addDocument(from: object) { error in
+                if let error = error {
+                    print("Error adding \(T.self) for \(uid) to Firestore: \(error.localizedDescription)")
+                } else {
+                    print("\(T.self) added successfully")
+                }
+            }
+        } catch let error {
+            print("Error adding \(T.self) for \(uid) to Firestore: \(error.localizedDescription)")
+        }
     }
     
     func fetchTransactions(uid: String) async -> [Transaction] {

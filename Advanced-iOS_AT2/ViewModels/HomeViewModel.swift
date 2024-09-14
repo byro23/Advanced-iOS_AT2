@@ -10,21 +10,18 @@ import Foundation
 @MainActor
 class HomeViewModel: ObservableObject {
     
-    @Published var name: String
-    @Published var expenseTotal: Int
-    @Published var incomeTotal: Int
-    @Published var currentBalance: Int
+    @Published var name: String = "Unauthenticated"
+    @Published var expenseTotal: Int = 0
+    @Published var incomeTotal: Int = 0
+    @Published var currentBalance: Int = 0
     @Published var isLoadingTransactions: Bool = true
     
-    @Published var transactions: [Transaction] = []
+    @Published var transactions: [Transaction] = [] /*{
+            didSet {
+                calculate()  // Recalculate totals only when transactions change
+            }
+        } */
     @Published var categories: [Category] = []
-    
-    init(name: String, expenseTotal: Int, incomeTotal: Int) {
-        self.name = name
-        self.expenseTotal = expenseTotal
-        self.incomeTotal = incomeTotal
-        self.currentBalance = incomeTotal - expenseTotal
-    }
     
     func fetchData(uid: String) async {
         
@@ -40,6 +37,9 @@ class HomeViewModel: ObservableObject {
         transactions = await FirebaseManager.shared.fetchTransactions(uid: uid)
         // Fetch categories
         categories = await FirebaseManager.shared.fetchCategories(uid: uid)
+        
+        calculate()
+        
         // Turn off loading indicator
         isLoadingTransactions = false
         
@@ -55,8 +55,25 @@ class HomeViewModel: ObservableObject {
         catch {
             
         }
+    }
+    
+    func calculate() {
+        var expenses = 0
+        var income = 0
         
+        for transaction in self.transactions {
+            if(transaction.type == .expense) {
+                expenses += transaction.amount
+            }
+            else {
+                income += transaction.amount
+            }
+        }
         
+        self.expenseTotal = expenses
+        self.incomeTotal = income
+        
+        self.currentBalance = income - expenses
         
         
     }

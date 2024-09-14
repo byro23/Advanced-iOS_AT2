@@ -130,7 +130,7 @@ struct RegistrationView: View {
                 .opacity(viewModel.formIsValid ? 1.0 : 0.5)
             }
             else {
-                Text("Registration successful!")
+                Text("Registration successful! Redirecting...")
                     .font(.headline)
             }
         }
@@ -144,7 +144,7 @@ struct RegistrationView: View {
         .navigationBarTitleDisplayMode(.large)
         .onChange(of: authViewModel.authenticationState) { _, newState in
             if(newState == .authenticated) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     // Code to run after 3 seconds
                     navigationController.path.removeLast()
                     navigationController.path.append(NavigationController.AppScreen.tab)

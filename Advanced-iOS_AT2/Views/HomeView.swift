@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var navigationController: NavigationController
     @EnvironmentObject var authViewModel: AuthViewModel
-    @StateObject var viewModel = HomeViewModel(name: "Unauthorised", expenseTotal: 0, incomeTotal: 0)
+    @StateObject var viewModel = HomeViewModel()
     
     var body: some View {
         

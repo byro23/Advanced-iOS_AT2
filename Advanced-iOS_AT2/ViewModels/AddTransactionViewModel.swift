@@ -12,13 +12,15 @@ class AddTransactionViewModel: ObservableObject {
     
     @Published var transactionName: String = ""
     @Published var transactionAmount: String = ""
-    @Published var selectedCategory: Category = Category(id: "", name: "", totalAmount: 0)
+    @Published var selectedCategory: Category = Category(id: "", name: "")
     @Published var selectedType: TransactionType = .expense
     @Published var selectedDate: Date = Date()
     
     @Published var loading: Bool = false
     @Published var success: Bool = false
     @Published var inputError: Bool = false
+    
+    @Published var isAddCategorySheetShowing: Bool = false
     
     
     @Published var userCategories: [Category] = []
