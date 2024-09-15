@@ -7,16 +7,18 @@
 
 import Foundation
 
+// MARK: - TransactionsViewModel Class
 @MainActor
 class TransactionsViewModel: ObservableObject {
     
+    // MARK: - Properties
     @Published var transactions: [Transaction] = []
     @Published var filteredTransactions: [Transaction] = []
     @Published var filterText: String = ""
     @Published var isLoadingTransactions: Bool = true
-    
     @Published var showAddTransactionSheet: Bool = false
     
+    // MARK: - Functions
     // Used to match the transactions with the filter text
     private func isMatch(_ transaction: Transaction, searchText: String) -> Bool {
         let dateFormatter = DateFormatter()

@@ -17,7 +17,7 @@ class RegistrationViewModel: ObservableObject, FormProtocol {
     
     private var loadingMessageArray = ["Loading home page.", "Loading home page..", "Loading home page..."]
     
-    var formIsValid: Bool {
+    var isValid: Bool {
         return !email.isEmpty && email.contains(".com") && email.contains("@") && !password.isEmpty && password.count > 5 && !name.isEmpty && confirmPassword == password
     }
     

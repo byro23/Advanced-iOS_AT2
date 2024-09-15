@@ -68,8 +68,16 @@ struct AddTransactionView: View {
                     }
                     else {
                         Button("Save Transaction") {
-                            viewModel.showConfirmation = true
                             
+                            
+                            print(viewModel.invalidAmountInput)
+                            
+                            if(viewModel.invalidAmountInput == false) {
+                                viewModel.showConfirmation = true
+                            }
+                            else {
+                                viewModel.inputError = true
+                            }
                         }
                         .font(.headline)
                         .frame(maxWidth: .infinity, alignment: .center)
@@ -88,7 +96,7 @@ struct AddTransactionView: View {
             }
             
         }
-        .alert("Please complete all fields.", isPresented: $viewModel.inputError) {
+        .alert("Please complete all fields correctly.", isPresented: $viewModel.inputError) {
             Button("Understood", role: .cancel) {
                 viewModel.inputError = false
             }

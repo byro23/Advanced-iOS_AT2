@@ -14,7 +14,7 @@ struct HomeView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @StateObject var viewModel = HomeViewModel()
     
-    //: MARK: - View
+    // MARK: - View
     var body: some View {
         
         VStack {

@@ -7,14 +7,16 @@
 
 import Foundation
 
+// MARK: - CategoriesViewModel Class
 @MainActor
 class CategoriesViewModel: ObservableObject {
     
+    // MARK: - Properties
     @Published var filterText: String = ""
     @Published var categories: [Category] = []
-    
     @Published var isLoading: Bool = false
     
+    // MARK: - Functions
     func FetchCategories(uid: String) async {
         
         isLoading = true

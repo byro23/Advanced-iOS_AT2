@@ -7,8 +7,9 @@
 
 import Foundation
 
+// MARK: - AddCategoryViewModel Class
 class AddCategoryViewModel: ObservableObject {
-    
+    // MARK: - Properties
     @Published var categoryName: String = ""
     @Published var statusMessage: String = ""
     var statusMessages: [String] = ["Category added successfully!", "Error adding new category. Please try again", "Category already exists."]
@@ -17,6 +18,7 @@ class AddCategoryViewModel: ObservableObject {
         return categoryName.count > 0
     }
     
+    // MARK: - Functions
     func alreadyExists(forCategories: [Category]) -> Bool {
         
         for category in forCategories {

@@ -16,13 +16,16 @@ enum AuthenticationState {
     case authenticated
 }
 
+// MARK: - AuthViewModel Class
 @MainActor
-class AuthViewModel: ObservableObject { // This class is used to manage the user session
+class AuthViewModel: ObservableObject, AuthenticationProtocol { // This class is used to manage the user session
+    //MARK: - Properties
     @Published var isLoggedIn: Bool = false
     @Published var currentUser: User?
     @Published var authenticationState: AuthenticationState = .unauthenticated
     @Published var emailAlreadyExists: Bool = false
     
+    // MARK: - Functions
     // Sign in the user
     func signIn(email: String, password: String) async {
         do {

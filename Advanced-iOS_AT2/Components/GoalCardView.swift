@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-// MARK: - GoalCardView
+// MARK: - GoalCardView (Idea that wasn't implemented)
 
 struct GoalCardView: View {
     

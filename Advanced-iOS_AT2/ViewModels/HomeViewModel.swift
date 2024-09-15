@@ -7,9 +7,10 @@
 
 import Foundation
 
+// MARK: - HomeViewModel Class
 @MainActor
 class HomeViewModel: ObservableObject {
-    
+    //MARK: - Properties
     @Published var name: String = "Unauthenticated"
     @Published var expenseTotal: Int = 0
     @Published var incomeTotal: Int = 0
@@ -18,7 +19,8 @@ class HomeViewModel: ObservableObject {
     @Published var transactions: [Transaction] = []
     @Published var categories: [Category] = []
     
-    func fetchData(uid: String) async {
+    //MARK: - Functions
+    func fetchData(uid: String) async { // Used to user data
         
         // For preview only
         if uid == "" {
@@ -63,7 +65,6 @@ class HomeViewModel: ObservableObject {
                 
                 if let index = categories.firstIndex(where: { $0.id == transaction.categoryId}) {
                     categories[index].totalAmount += transaction.amount
-                    print(categories[index].totalAmount)
                 }
             }
             else {

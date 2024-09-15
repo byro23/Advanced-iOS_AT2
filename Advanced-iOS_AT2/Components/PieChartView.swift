@@ -29,20 +29,6 @@ struct PieChartView: View {
                     .foregroundStyle(by: .value("Category", item.name))
                 }
                 .frame(width: 250, height: 250)
-                //.chartLegend(.hidden)
-                
-                /*VStack(alignment: .leading) {
-                    ForEach(data) { item in
-                        HStack(alignment: .center) {
-                            Circle()
-                                .fill(.blue)
-                                .frame(width: 10, height: 10)
-                            Text(item.name)
-                                .font(.caption)
-                        }
-                    }
-                }
-                .padding(.leading) */
             }
         }
         else {

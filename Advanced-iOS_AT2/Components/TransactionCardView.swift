@@ -15,13 +15,6 @@ struct TransactionCardView: View {
     var body: some View {
         VStack {
             HStack {
-                /*Text("Latest Transactions")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.black) */
-                
-                
-                
                 LazyVStack(spacing: 1) {
                     if(isFetching) {
                         ProgressView()
@@ -50,19 +43,7 @@ struct TransactionCardView: View {
                         }
                     }
                 }
-                
-                
-                /*Button {
-                    
-                } label: {
-                    Image(systemName: "arrow.up.right")
-                        .resizable()
-                        .frame(width: 17, height: 17)
-                        .foregroundColor(.cyan)
-                } */
             }
-            //.padding(.horizontal)
-            //.padding(.trailing, 15)
         }
         .background(.white)
         .cornerRadius(15)

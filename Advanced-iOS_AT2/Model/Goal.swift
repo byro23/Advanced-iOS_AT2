@@ -7,14 +7,13 @@
 
 import Foundation
 
-
+// MARK: - Goal Model (Idea that wasn't implemented)
 struct Goal: Identifiable, Codable, Hashable {
         
     let id : String
     var name: String
-    // var description: String
-    var goalAmount: Decimal // Converted to string when sent to db.
-    var savedAmount: Decimal // Converted to string when sent to db.
+    var goalAmount: Int
+    var savedAmount: Int
     
 }
 

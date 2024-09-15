@@ -128,8 +128,8 @@ struct RegistrationView: View {
                 .background(LinearGradient(gradient: Gradient(colors: [Color.moneyGreenColor, Color.green]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
                 .cornerRadius(25)
                 .padding()
-                .disabled(!viewModel.formIsValid)
-                .opacity(viewModel.formIsValid ? 1.0 : 0.5)
+                .disabled(!viewModel.isValid)
+                .opacity(viewModel.isValid ? 1.0 : 0.5)
             }
             else {
                 Text("Registration successful! Redirecting...")

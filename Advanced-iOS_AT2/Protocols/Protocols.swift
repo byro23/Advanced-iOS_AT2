@@ -23,3 +23,13 @@ protocol DocumentManagerProtocol {
     
     func deleteDocument(uid: String, collectionName: String, documentId: String) async throws
 }
+
+protocol AuthenticationProtocol {
+    func signIn(email: String, password: String) async
+    
+    func signUp(email: String, password: String, name: String) async
+    
+    func fetchUser() async
+    
+    @MainActor func signOut()
+}

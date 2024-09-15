@@ -7,9 +7,11 @@
 
 import Foundation
 
+// MARK: - AddTransactionViewModel Class
 @MainActor
 class AddTransactionViewModel: ObservableObject {
     
+    // MARK: - Properties
     @Published var transactionName: String = ""
     @Published var transactionAmount: String = ""
     @Published var selectedCategory: Category = Category(name: "")
@@ -23,13 +25,18 @@ class AddTransactionViewModel: ObservableObject {
     @Published var isAddCategorySheetShowing: Bool = false
     @Published var showConfirmation: Bool = false
     
+    var invalidAmountInput: Bool {
+        return Decimal(string: transactionAmount) == nil
+    }
+    
     
     @Published var userCategories: [Category] = []
     
     let transactionTypes: [TransactionType] = [.expense, .income]
     
+    // MARK: - Functions
     func fetchUserCategories(uid: String) async {
-        // Preview case (prevents fetch)
+        // Preview case
         if uid == "" {
             userCategories = Category.Default_Categories
             selectedCategory = userCategories[0]
@@ -51,8 +58,16 @@ class AddTransactionViewModel: ObservableObject {
         
         loading = true
         
+        if Decimal(string: transactionAmount) == nil {
+            inputError = true
+            loading = false
+            return nil
+        }
+        
         if transactionName.isEmpty || transactionAmount.isEmpty {
             inputError = true
+            loading = false
+            return nil
         }
         
         guard let parsedTransactionAmount = Decimal(string: transactionAmount) else {
@@ -81,8 +96,6 @@ class AddTransactionViewModel: ObservableObject {
             loading = false
             return nil
         }
-        
-        
         
     }
     
