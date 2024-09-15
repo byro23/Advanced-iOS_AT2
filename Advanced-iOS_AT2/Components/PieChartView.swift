@@ -28,7 +28,7 @@ struct PieChartView: View {
                     }
                     .foregroundStyle(by: .value("Category", item.name))
                 }
-                .frame(width: 200, height: 200)
+                .frame(width: 250, height: 250)
                 //.chartLegend(.hidden)
                 
                 /*VStack(alignment: .leading) {

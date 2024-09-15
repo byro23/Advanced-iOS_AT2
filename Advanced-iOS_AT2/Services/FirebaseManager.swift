@@ -15,8 +15,6 @@ class FirebaseManager {
     private let db = Firestore.firestore()
     
     
-    // Database operations here
-    
     func authenticateUser(email:String, password: String) async throws {
         try await Auth.auth().signIn(withEmail: email, password: password)
     }
@@ -56,7 +54,7 @@ class FirebaseManager {
         
     }
     
-    func fetchUserById(uid: String) async -> DocumentSnapshot? {
+    func fetchUser(uid: String) async -> DocumentSnapshot? {
         do {
             let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
             return snapshot

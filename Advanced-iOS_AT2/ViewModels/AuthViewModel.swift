@@ -71,7 +71,7 @@ class AuthViewModel: ObservableObject {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         
         // Retrieve user from Db
-        guard let snapshot = await FirebaseManager.shared.fetchUserById(uid: uid) else {
+        guard let snapshot = await FirebaseManager.shared.fetchUser(uid: uid) else {
             print("Snapshot is nil")
             return
         }
