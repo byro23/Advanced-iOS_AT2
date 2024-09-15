@@ -27,10 +27,11 @@ struct TransactionsView: View {
             
             HStack {
                 Text("Search:")
+                    .font(.subheadline)
                     .padding(.trailing, 10)
                     .fontWeight(.semibold)
                 
-                TextField("Filter by name, value or date", text: $viewModel.filterText)
+                TextField("name, amount, category or date", text: $viewModel.filterText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .font(.subheadline)
                 Button {
@@ -45,7 +46,7 @@ struct TransactionsView: View {
                 .foregroundStyle(.white)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.moneyGreenColor, Color.green]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
                 .cornerRadius(15)
-                .padding(.horizontal)
+                .padding(.leading)
                 .shadow(color: .gray.opacity(0.5), radius: 4, x: 0, y: 2)
             }
             .padding()

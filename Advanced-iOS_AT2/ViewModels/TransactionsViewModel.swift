@@ -26,7 +26,8 @@ class TransactionsViewModel: ObservableObject {
         let searchTextLowercased = searchText.lowercased()
         return transaction.name.lowercased().contains(searchTextLowercased) ||
                "\(transaction.amount)".contains(searchTextLowercased) ||
-                dateFormatter.string(from: transaction.date).contains(searchTextLowercased)
+                dateFormatter.string(from: transaction.date).contains(searchTextLowercased) ||
+                transaction.categoryId.lowercased().contains(searchTextLowercased)
     }
     
     func fetchTransactions(uid: String) async {

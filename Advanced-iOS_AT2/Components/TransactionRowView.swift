@@ -24,6 +24,10 @@ struct TransactionRowView: View {
                     .font(.footnote)
                     .fontWeight(.bold)
                     .foregroundColor(.black)
+                
+                Text("(\(transactionModel.categoryId))")
+                    .font(.footnote)
+                
                 Text(transactionDateFormatter.string(from: transactionModel.date))
                     .font(.footnote)
                     .fontWeight(.semibold)

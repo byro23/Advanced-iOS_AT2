@@ -21,6 +21,7 @@ class AddTransactionViewModel: ObservableObject {
     @Published var inputError: Bool = false
     
     @Published var isAddCategorySheetShowing: Bool = false
+    @Published var showConfirmation: Bool = false
     
     
     @Published var userCategories: [Category] = []

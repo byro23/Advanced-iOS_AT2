@@ -76,15 +76,8 @@ struct AddTransactionView: View {
                     }
                     else {
                         Button("Save Transaction") {
+                            viewModel.showConfirmation = true
                             
-                            if let newTransaction = viewModel.AddTransaction(uid: authViewModel.currentUser?.id ?? "") {
-                                
-                                transactions.append(newTransaction)
-                                
-                                transactions = transactions.sorted {$0.date > $1.date}
-                                
-                                isSheetShowing = false
-                            }
                         }
                         .font(.headline)
                         .frame(maxWidth: .infinity, alignment: .center)
@@ -111,6 +104,24 @@ struct AddTransactionView: View {
         .alert("Please complete all fields.", isPresented: $viewModel.inputError) {
             Button("Understood", role: .cancel) {
                 viewModel.inputError = false
+            }
+        }
+        .alert("Are you sure?", isPresented: $viewModel.showConfirmation) {
+            Button("Cancel", role: .cancel) {
+                viewModel.showConfirmation = false
+            }
+            
+            Button("Confirm") {
+                if let newTransaction = viewModel.AddTransaction(uid: authViewModel.currentUser?.id ?? "") {
+                    
+                    transactions.append(newTransaction)
+                    
+                    transactions = transactions.sorted {$0.date > $1.date}
+                    
+                    viewModel.showConfirmation = false
+                    
+                    isSheetShowing = false
+                }
             }
         }
     }
