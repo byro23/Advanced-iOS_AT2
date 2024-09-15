@@ -21,7 +21,7 @@ struct PieChartView: View {
                         angularInset: 0.5
                     )
                     .annotation(position: .overlay) {
-                        Text("\(CurrencyUtils.centsToDollars(cents: item.totalAmount))")
+                        Text("$\(CurrencyUtils.centsToDollars(cents: item.totalAmount))")
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .foregroundStyle(.white)

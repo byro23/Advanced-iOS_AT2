@@ -9,10 +9,15 @@ import Foundation
 import SwiftUI
 
 struct LoginView : View {
+    
+    // MARK: - View model, environment objects, binding variable
+    
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var navigationController: NavigationController
     @StateObject var viewModel = LoginViewModel()
     @Binding var isBackPressed: Bool
+    
+    // MARK: - View
     
     var body: some View {
         VStack() {

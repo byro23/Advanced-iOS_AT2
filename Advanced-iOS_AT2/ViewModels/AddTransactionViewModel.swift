@@ -35,9 +35,15 @@ class AddTransactionViewModel: ObservableObject {
             return
         }
         
-        userCategories = await FirebaseManager.shared.fetchCategories(uid: uid)
+        // Fetch user categories
+        do {
+            userCategories = try await FirebaseManager.shared.fetchDocuments(uid: uid, collectionName: "categories", as: Category.self)
+            selectedCategory = userCategories[0]
+        }
+        catch {
+            print("Error fetching categories: \(error.localizedDescription)")
+        }
         
-        selectedCategory = userCategories[0]
     }
     
     func AddTransaction(uid: String) -> Transaction? {
@@ -64,12 +70,13 @@ class AddTransactionViewModel: ObservableObject {
         }
         
         do {
-            try FirebaseManager.shared.addTransaction(transaction: newTransaction, uid: uid)
+            try FirebaseManager.shared.addDocument(object: newTransaction, toCollection: "transactions", forUser: uid)
             loading = false
             success = true
             return newTransaction
         }
         catch {
+            print("Error adding transaction: \(error.localizedDescription)")
             loading = false
             return nil
         }

@@ -13,6 +13,7 @@ protocol Form {
     func formIsValid(email: String, password: String) -> Bool
 }
 
+// Used to track the various authentication state changes that occur in a user session
 enum AuthenticationState {
     case unauthenticated
     case authenticating
@@ -26,6 +27,7 @@ class AuthViewModel: ObservableObject {
     @Published var authenticationState: AuthenticationState = .unauthenticated
     @Published var emailAlreadyExists: Bool = false
     
+    // Sign in the user
     func signIn(email: String, password: String) async {
         do {
             authenticationState = .authenticating
@@ -42,6 +44,7 @@ class AuthViewModel: ObservableObject {
         
     }
     
+    // Create an account and authenticate the user
     func signUp(email: String, password: String, name: String) async {
         authenticationState = .authenticating
         
@@ -83,6 +86,7 @@ class AuthViewModel: ObservableObject {
         }
     }
     
+    // Sign the user out (deauthenciate)
     func signOut() {
         do {
             try Auth.auth().signOut()
@@ -93,17 +97,6 @@ class AuthViewModel: ObservableObject {
             print("Error signing user out: \(error)")
         }
     }
-    
-    // As of now, mainly used to prefetch transactions when logging in for better UX
-    /*func fetchTransactions() async {
-        
-        guard let id = currentUser?.id else {
-            print("Error: unauthenticated user.")
-            return
-        }
-        
-        let transactions = await FirebaseManager.shared.fetchTransactions(uid: id)
-    } */
     
     
 }

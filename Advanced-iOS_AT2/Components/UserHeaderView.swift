@@ -18,15 +18,13 @@ struct UserHeaderView: View {
             
             Spacer()
             
-            Image(systemName: "bell")
-                .resizable()
-                .frame(width: 35, height: 35)
-                .foregroundColor(.blue)
-            
             Menu {
                 Button("Signout") {
                     authViewModel.signOut()
                     navigationController.path.removeLast()
+                }
+                .onTapGesture {
+                    navigationController.currentTab = .home
                 }
             } label: {
                 Image(systemName: "person.circle")

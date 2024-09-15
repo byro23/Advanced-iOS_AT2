@@ -8,18 +8,8 @@
 import Foundation
 import SwiftUI
 
-enum NetworkStates: Equatable {
-    case idle
-    case loading
-    case success
-    case failure
-}
-
-enum DataModels: String {
-    case transaction = "transaction"
-    case category = "category"
-}
-
+// As it is more suitable for Firestore, numeric values are stored as cents (ints) on the database
+// This utility allows for more seamless and error-free conversion from cents to dollars
 struct CurrencyUtils {
     static func centsToDollars(cents: Int) -> Decimal {
         return Decimal(cents) / 100
@@ -30,6 +20,7 @@ struct CurrencyUtils {
     }
 }
 
+// Used to format dates in the format "d MMMM, yyyy"
 struct DateFormatterHelper {
     
     static let shared: DateFormatter = {
@@ -39,6 +30,7 @@ struct DateFormatterHelper {
     }()
 }
 
+// Customisation of app-wide background colour
 struct MintBackgroundModifier: ViewModifier {
     func body(content: Content) -> some View {
         ZStack {
@@ -49,6 +41,7 @@ struct MintBackgroundModifier: ViewModifier {
     }
 }
 
+// Used to easily apply app-wide background colour to each view
 extension View {
     func applyMintBackground() -> some View {
         self.modifier(MintBackgroundModifier())
@@ -56,7 +49,6 @@ extension View {
 }
 
 // Custom Colour Storage
-
 extension Color {
     static let moneyBrightGreenColor = Color(red: 5/255, green: 168/255, blue: 107/255)
     static let moneyGreenColor = Color(red: 55/255, green: 140/255, blue: 120/255)

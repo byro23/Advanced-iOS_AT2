@@ -16,16 +16,12 @@ class HomeViewModel: ObservableObject {
     @Published var currentBalance: Int = 0
     @Published var isLoadingTransactions: Bool = true
     
-    @Published var transactions: [Transaction] = [] /*{
-            didSet {
-                calculate()  // Recalculate totals only when transactions change
-            }
-        } */
+    @Published var transactions: [Transaction] = []
     @Published var categories: [Category] = []
     
     func fetchData(uid: String) async {
         
-        // This is mainly for preview
+        // For preview only
         if uid == "" {
             transactions = Transaction.Mock_Transactions // For preview/testing
             print("Unauthenticated - unable to fetch transactions.")
@@ -33,29 +29,28 @@ class HomeViewModel: ObservableObject {
             return
         }
         
-        // transactions = await FirebaseManager.shared.fetchDocuments(uid: <#T##String#>, collectionName: <#T##String#>, as: <#T##Decodable.Type#>)
         // Fetch transactions
-        transactions = await FirebaseManager.shared.fetchTransactions(uid: uid)
-        // Fetch categories
-        categories = await FirebaseManager.shared.fetchCategories(uid: uid)
+        do {
+            transactions = try await FirebaseManager.shared.fetchDocuments(uid: uid, collectionName: "transactions", as: Transaction.self)
+        }
+        catch {
+            print("Error fetching transactions: \(error.localizedDescription)")
+        }
         
+        // Fetch categories
+        do {
+            categories = try await FirebaseManager.shared.fetchDocuments(uid: uid, collectionName: "categories", as: Category.self)
+        }
+        catch {
+            print("Error fetching categories: \(error.localizedDescription)")
+        }
+        
+        // Calculate totals expenses, income and category totals
         calculate()
         
         // Turn off loading indicator
         isLoadingTransactions = false
         
-    }
-    
-    func addTestTransaction(uid: String) {
-        let testTransaction = Transaction(id: UUID().uuidString, name: "Test", type: TransactionType.expense, categoryId: "mock_cat_001", date: Date(), amount: CurrencyUtils.dollarsToCents(dollars: 9.99)) 
-        
-        do {
-            try FirebaseManager.shared.addTransaction(transaction: testTransaction, uid: uid)
-            transactions.append(testTransaction)
-        }
-        catch {
-            
-        }
     }
     
     func calculate() {

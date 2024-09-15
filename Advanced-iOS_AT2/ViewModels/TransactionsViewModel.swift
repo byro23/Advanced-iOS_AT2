@@ -17,6 +17,7 @@ class TransactionsViewModel: ObservableObject {
     
     @Published var showAddTransactionSheet: Bool = false
     
+    // Used to match the transactions with the filter text
     private func isMatch(_ transaction: Transaction, searchText: String) -> Bool {
         let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss" // Specifying the specific format for date input filtering
@@ -35,8 +36,15 @@ class TransactionsViewModel: ObservableObject {
             isLoadingTransactions = false
             return
         }
+        // Fetch transactions
+        do {
+            transactions = try await FirebaseManager.shared.fetchDocuments(uid: uid, collectionName: "transactions", as: Transaction.self)
+        }
+        catch {
+            print("Error fetching document: \(error.localizedDescription)")
+        }
         
-        transactions = await FirebaseManager.shared.fetchTransactions(uid: uid)
+        // Turn off progress view
         isLoadingTransactions = false
     }
     

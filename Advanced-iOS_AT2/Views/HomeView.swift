@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    //: MARK: - View model and environment objects
     @EnvironmentObject var navigationController: NavigationController
     @EnvironmentObject var authViewModel: AuthViewModel
     @StateObject var viewModel = HomeViewModel()
     
+    //: MARK: - View
     var body: some View {
         
         
@@ -79,12 +82,6 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                        Button {
-                            viewModel.addTestTransaction(uid: authViewModel.currentUser?.id ?? "")
-                        } label: {
-                            Text("Add test (online)")
-                                .font(.footnote)
-                        }
                         
                         Button {
                             navigationController.currentTab = .transactions
@@ -110,6 +107,7 @@ struct HomeView: View {
                     viewModel.expenseTotal = authViewModel.currentUser?.expenses ?? 0
                     
                     Task {
+                        // Fetch necessary data as view loads
                         await viewModel.fetchData(uid: authViewModel.currentUser?.id ?? "")
                     }
                 }

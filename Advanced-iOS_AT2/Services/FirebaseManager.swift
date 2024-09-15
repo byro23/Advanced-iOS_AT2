@@ -121,42 +121,6 @@ class FirebaseManager {
         }
     }
     
-    func fetchTransactions(uid: String) async -> [Transaction] {
-        var transactions: [Transaction] = []
-        
-        let transactionsRef = db.collection("users").document(uid).collection("transactions")
-        do {
-            let querySnapshot = try await transactionsRef.getDocuments()
-            transactions = try querySnapshot.documents.map {try $0.data(as: Transaction.self)}
-            print("Transactions fetched successfully")
-        }
-        catch {
-            print("Error fetching transactions: \(error)")
-        }
-        
-        // Returns empty array if an error is thrown
-        return transactions
-    }
-    
-    func fetchCategories(uid: String) async -> [Category] {
-        var categories: [Category] = []
-        
-        let categoriesRef = db.collection("users").document(uid).collection("categories")
-        
-        do {
-            let querySnapshot = try await categoriesRef.getDocuments()
-            categories = try querySnapshot.documents.map {try $0.data(as: Category.self)}
-            print("Categories fetched successfully")
-        }
-        catch {
-            print("Error fetching categories: \(error)")
-        }
-        
-        // Returns empty if error occurs
-        return categories
-        
-        
-    }
     
     func fetchDocuments<T: Decodable>(uid: String, collectionName: String, as type: T.Type) async throws -> [T] {
         

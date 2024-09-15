@@ -38,6 +38,13 @@ struct TransactionCardView: View {
                             // Showing the 7 most recent transactoins
                             ForEach(transactions.sorted {$0.date > $1.date}.prefix(6)) { transaction in
                                 TransactionRowView(transactionModel: transaction)
+                                    .swipeActions {
+                                        Button(role: .destructive) {
+                                            
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                        }
+                                    }
                                 Divider()
                             }
                         }
