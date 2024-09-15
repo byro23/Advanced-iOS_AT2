@@ -10,7 +10,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
-class FirebaseManager {
+class FirebaseManager: DocumentManagerProtocol {
     static let shared = FirebaseManager()
     private let db = Firestore.firestore()
     
@@ -85,22 +85,6 @@ class FirebaseManager {
         
     }
     
-    func addTransaction(transaction: Transaction, uid: String) throws {
-        let transactionsRef = db.collection("users").document(uid).collection("transactions")
-        
-        do {
-            try transactionsRef.addDocument(from: transaction) { error in
-                if let error = error {
-                    print("Error adding transaction for \(uid) to Firestore: \(error.localizedDescription)")
-                } else {
-                    print("Transaction added successfully")
-                }
-            }
-        } catch let error {
-            print("Error adding transaction for \(uid) to Firestore: \(error.localizedDescription)")
-        }
-        
-    }
     
     // Generic function to add any Encodable object to Firestore
     func addDocument<T: Encodable>(object: T, toCollection collection: String, forUser uid: String) throws {

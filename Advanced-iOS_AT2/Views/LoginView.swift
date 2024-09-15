@@ -8,16 +8,17 @@
 import Foundation
 import SwiftUI
 
+// MARK: LoginView
+
 struct LoginView : View {
     
-    // MARK: - View model, environment objects, binding variable
-    
+    // MARK: - Properties
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var navigationController: NavigationController
     @StateObject var viewModel = LoginViewModel()
     @Binding var isBackPressed: Bool
     
-    // MARK: - View
+    // MARK: - Body
     
     var body: some View {
         VStack() {
@@ -58,7 +59,7 @@ struct LoginView : View {
                         }
                     }
                     .padding(.horizontal)
-                    .disabled(!viewModel.formIsValid)
+                    .disabled(!viewModel.isValid)
                 }
             }
             else {

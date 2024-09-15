@@ -9,10 +9,6 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
-protocol Form {
-    func formIsValid(email: String, password: String) -> Bool
-}
-
 // Used to track the various authentication state changes that occur in a user session
 enum AuthenticationState {
     case unauthenticated
@@ -21,7 +17,7 @@ enum AuthenticationState {
 }
 
 @MainActor
-class AuthViewModel: ObservableObject {
+class AuthViewModel: ObservableObject { // This class is used to manage the user session
     @Published var isLoggedIn: Bool = false
     @Published var currentUser: User?
     @Published var authenticationState: AuthenticationState = .unauthenticated

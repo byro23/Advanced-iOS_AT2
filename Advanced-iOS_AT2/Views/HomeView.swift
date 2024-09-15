@@ -17,7 +17,6 @@ struct HomeView: View {
     //: MARK: - View
     var body: some View {
         
-        
         VStack {
             
             UserHeaderView()
@@ -57,8 +56,6 @@ struct HomeView: View {
                         ShortCardView(fillColor: Color.red, title: "Expenses", value: "\(CurrencyUtils.centsToDollars(cents: viewModel.expenseTotal))", imageName: "arrowshape.up.circle.fill")
                     }
                     .padding(.top)
-                    
-                    // Maybe expense/income here?
                     
                     HStack {
                         Text("Your summary")

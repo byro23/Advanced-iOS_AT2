@@ -5,7 +5,7 @@
 ## Dependencies
 The only package dependency neccessary to run this app is Firebase/Firestore.
 
-The package should load automatically, however, if it doesn't', install with the Swift package manager with the following link [LINK](https://github.com/firebase/firebase-ios-sdk.git)
+The package should load automatically, however, if it doesn't, install with Swift package manager with the following link:  https://github.com/firebase/firebase-ios-sdk.git
 
 ## Primary Functionality
  - Login and registration functionality with authentication and account creation through Firebase / Firestore

@@ -7,15 +7,17 @@
 
 import SwiftUI
 
+// MARK: RegistrationView
 struct RegistrationView: View {
-    
+    // MARK: - Properties
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var navigationController: NavigationController
     @StateObject var viewModel = RegistrationViewModel()
     
+    // MARK: - Body
     var body: some View {
         VStack {
-            // Email field
+            
             ZStack(alignment: .trailing) {
                 InputView(text: $viewModel.email, title: "Email", placeholder: "youremail@domain.com")
                     .textInputAutocapitalization(.never)

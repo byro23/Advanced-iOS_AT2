@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
-
+// MARK: - CategoriesView
 struct CategoriesView: View {
     
+    // MARK: - Properties
     @EnvironmentObject var authViewModel: AuthViewModel
     @StateObject var viewModel = CategoriesViewModel()
     
+    // MARK: - Body
     var body: some View {
         
         VStack {

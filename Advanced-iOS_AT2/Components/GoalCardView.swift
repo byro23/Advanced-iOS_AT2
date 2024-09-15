@@ -8,15 +8,18 @@
 import Foundation
 import SwiftUI
 
+// MARK: - GoalCardView
+
 struct GoalCardView: View {
     
+    // MARK: - Properties
     @State var title: String
     @State var currentAmount: Decimal
     @State var goalAmount: Decimal
     @State var goalCompletionDate: Date
     
     
-    
+    // MARK: - Body
     var body: some View {
         
         VStack(alignment: .leading) {

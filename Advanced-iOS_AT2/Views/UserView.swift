@@ -7,8 +7,9 @@
 
 import SwiftUI
 
+// MARK: - Userview
 struct UserView: View {
-    
+    // MARK: - Properties
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var navigationController: NavigationController
     
@@ -16,6 +17,8 @@ struct UserView: View {
         UITabBar.appearance().backgroundColor = UIColor(Color.mintBackgroundColor)
     }
     
+    
+    // MARK: - Body
     var body: some View {
                     
         TabView(selection: $navigationController.currentTab) {

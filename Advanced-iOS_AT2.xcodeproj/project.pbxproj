@@ -26,6 +26,7 @@
 		C18277692C950E3F004E656C /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18277682C950E3F004E656C /* AddCategoryViewModel.swift */; };
 		C182776B2C955926004E656C /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C182776A2C955926004E656C /* CategoriesView.swift */; };
 		C182776D2C955BEE004E656C /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C182776C2C955BEE004E656C /* CategoriesViewModel.swift */; };
+		C182776F2C970F12004E656C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C182776E2C970F12004E656C /* Protocols.swift */; };
 		C19E5DD02C856F7600320C1F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DCF2C856F7600320C1F /* HomeView.swift */; };
 		C19E5DD22C856FAE00320C1F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD12C856FAE00320C1F /* NavigationController.swift */; };
 		C19E5DD42C856FC600320C1F /* TransactionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD32C856FC600320C1F /* TransactionCardView.swift */; };
@@ -71,6 +72,7 @@
 		C18277682C950E3F004E656C /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
 		C182776A2C955926004E656C /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		C182776C2C955BEE004E656C /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
+		C182776E2C970F12004E656C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = "Advanced-iOS_AT2/ViewModels/Protocols.swift"; sourceTree = SOURCE_ROOT; };
 		C19E5DCF2C856F7600320C1F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C19E5DD12C856FAE00320C1F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C19E5DD32C856FC600320C1F /* TransactionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCardView.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		C19E5DE22C85856000320C1F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C182776E2C970F12004E656C /* Protocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				C18277692C950E3F004E656C /* AddCategoryViewModel.swift in Sources */,
 				C10859C92C82B1990011E6D5 /* Advanced_iOS_AT2App.swift in Sources */,
 				C141D1952C8A6C730081F796 /* GoalCardView.swift in Sources */,
+				C182776F2C970F12004E656C /* Protocols.swift in Sources */,
 				C106EB272C9105000074FBDA /* TransactionRowView.swift in Sources */,
 				C141D19F2C8ADD8E0081F796 /* UserView.swift in Sources */,
 				C19E5DDA2C85781200320C1F /* HomeViewModel.swift in Sources */,

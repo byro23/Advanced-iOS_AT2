@@ -8,7 +8,7 @@
 import Foundation
 
 
-class RegistrationViewModel: ObservableObject {
+class RegistrationViewModel: ObservableObject, FormProtocol {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""

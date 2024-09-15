@@ -15,7 +15,6 @@ class HomeViewModel: ObservableObject {
     @Published var incomeTotal: Int = 0
     @Published var currentBalance: Int = 0
     @Published var isLoadingTransactions: Bool = true
-    
     @Published var transactions: [Transaction] = []
     @Published var categories: [Category] = []
     
@@ -53,6 +52,7 @@ class HomeViewModel: ObservableObject {
         
     }
     
+    // Calculate expenses, income, and total amounts for each category
     func calculate() {
         var expenses = 0
         var income = 0

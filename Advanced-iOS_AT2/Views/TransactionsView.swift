@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-// Add, remove, edit transactions and the categories they belong to
-
+// MARK: - TransactionsView
 struct TransactionsView: View {
-    
+    // MARK: - Properties
     @EnvironmentObject var authViewModel: AuthViewModel
     @StateObject var viewModel: TransactionsViewModel = TransactionsViewModel()
     
+    // MARK: - Body
     var body: some View {
         
         VStack {

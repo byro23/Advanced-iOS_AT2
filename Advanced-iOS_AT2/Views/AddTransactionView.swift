@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
-
+// MARK: AddTransactionView
 struct AddTransactionView: View {
-    
+    // MARK: - Properties
     @EnvironmentObject var authViewModel: AuthViewModel
     @StateObject var viewModel = AddTransactionViewModel()
-    
     @Binding var transactions: [Transaction]
     @Binding var isSheetShowing : Bool
     
+    // MARK: - Body
     var body: some View {
         
         VStack {
@@ -57,16 +57,8 @@ struct AddTransactionView: View {
                     .pickerStyle(.automatic)
                     
                     AddCategoryView(categories: $viewModel.userCategories, selectedCategory: $viewModel.selectedCategory)
-                    
-                    /*
-                    Button {
-                        
-                    } label: {
-                        Text("Add new category")
-                    } */
 
                 }
-                
                 Section {
                     if(viewModel.loading) {
                         ProgressView()
@@ -96,11 +88,6 @@ struct AddTransactionView: View {
             }
             
         }
-        /*.alert("Success!", isPresented: $viewModel.success) {
-            Button("Ok", role: .cancel) {
-                isSheetShowing = false
-            }
-        } */
         .alert("Please complete all fields.", isPresented: $viewModel.inputError) {
             Button("Understood", role: .cancel) {
                 viewModel.inputError = false

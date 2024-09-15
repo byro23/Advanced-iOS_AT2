@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
-
+// MARK: - AddCategoryView
 struct AddCategoryView: View {
-    
+    // MARK: - Properties
     @EnvironmentObject var authViewModel: AuthViewModel
     @StateObject var viewModel = AddCategoryViewModel()
     @Binding var categories: [Category]
     @Binding var selectedCategory: Category
-    
+    // MARK: - Body
     var body: some View {
         
         VStack(alignment: .leading) {

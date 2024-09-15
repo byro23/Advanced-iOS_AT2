@@ -7,12 +7,15 @@
 
 import SwiftUI
 
+// MARK: - LandingView
 struct LandingView: View {
-    
+    // MARK: - Properties
     @EnvironmentObject var navigationController: NavigationController
     @StateObject var viewModel = LandingViewModel()
     @State var isTapped: Bool = false
     
+    
+    // MARK: - Body
     var body: some View {
         if(viewModel.isLoginButtonTapped == false) {
             Spacer()
