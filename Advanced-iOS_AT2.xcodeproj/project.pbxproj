@@ -31,7 +31,6 @@
 		C19E5DD22C856FAE00320C1F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD12C856FAE00320C1F /* NavigationController.swift */; };
 		C19E5DD42C856FC600320C1F /* TransactionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD32C856FC600320C1F /* TransactionCardView.swift */; };
 		C19E5DD62C85761600320C1F /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD52C85761600320C1F /* PieChartView.swift */; };
-		C19E5DD82C85768300320C1F /* DonutChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD72C85768300320C1F /* DonutChartView.swift */; };
 		C19E5DDA2C85781200320C1F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DD92C85781200320C1F /* HomeViewModel.swift */; };
 		C19E5DDC2C8578A600320C1F /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DDB2C8578A600320C1F /* LandingView.swift */; };
 		C19E5DDF2C857BA200320C1F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E5DDE2C857BA200320C1F /* Category.swift */; };
@@ -77,7 +76,6 @@
 		C19E5DD12C856FAE00320C1F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C19E5DD32C856FC600320C1F /* TransactionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCardView.swift; sourceTree = "<group>"; };
 		C19E5DD52C85761600320C1F /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
-		C19E5DD72C85768300320C1F /* DonutChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChartView.swift; sourceTree = "<group>"; };
 		C19E5DD92C85781200320C1F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C19E5DDB2C8578A600320C1F /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		C19E5DDE2C857BA200320C1F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 			children = (
 				C19E5DD32C856FC600320C1F /* TransactionCardView.swift */,
 				C19E5DD52C85761600320C1F /* PieChartView.swift */,
-				C19E5DD72C85768300320C1F /* DonutChartView.swift */,
 				C1E37FE32C882712005470F3 /* InputView.swift */,
 				C1F5819B2C884813005D9DC2 /* LogoHeaderView.swift */,
 				C141D1942C8A6C730081F796 /* GoalCardView.swift */,
@@ -322,7 +319,6 @@
 				C141D19F2C8ADD8E0081F796 /* UserView.swift in Sources */,
 				C19E5DDA2C85781200320C1F /* HomeViewModel.swift in Sources */,
 				C19E5DD62C85761600320C1F /* PieChartView.swift in Sources */,
-				C19E5DD82C85768300320C1F /* DonutChartView.swift in Sources */,
 				C19E5DD22C856FAE00320C1F /* NavigationController.swift in Sources */,
 				C141D1A12C8BCA390081F796 /* ShortCardView.swift in Sources */,
 				C19E5DDF2C857BA200320C1F /* Category.swift in Sources */,
