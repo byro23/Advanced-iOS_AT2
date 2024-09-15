@@ -45,10 +45,6 @@ struct GoalCardView: View {
         .padding()
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 15))
-        /*.overlay(
-                    RoundedRectangle(cornerRadius: 15) // Add the border overlay
-                        .stroke(Color.red, lineWidth: 2) // Set the border color and thickness
-                ) */
         .shadow(radius: 5)
         .frame(width: UIScreen.main.bounds.width * 0.9)
     }
