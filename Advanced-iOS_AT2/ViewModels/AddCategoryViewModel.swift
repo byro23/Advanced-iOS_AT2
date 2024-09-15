@@ -35,7 +35,7 @@ class AddCategoryViewModel: ObservableObject {
         // Preview Case
         
         
-        let newCategory = Category(id: UUID().uuidString, name: categoryName)
+        let newCategory = Category(name: categoryName)
         
         if uid == "" {
             statusMessage = statusMessages[0]

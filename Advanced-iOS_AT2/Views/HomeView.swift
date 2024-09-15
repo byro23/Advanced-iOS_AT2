@@ -33,6 +33,23 @@ struct HomeView: View {
                     .padding(.top)
                     
                     HStack {
+                        Spacer()
+                        Text("Account Balance")
+                            .font(.subheadline)
+                            .foregroundStyle(.gray)
+                        Spacer()
+                    }
+                    .padding(.top)
+                    
+                    HStack {
+                        Spacer()
+                        Text("$\(CurrencyUtils.centsToDollars(cents: viewModel.currentBalance))")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                        Spacer()
+                    }
+                    
+                    HStack {
                         ShortCardView(fillColor: Color.moneyBrightGreenColor, title: "Income", value: "\(CurrencyUtils.centsToDollars(cents: viewModel.incomeTotal))", imageName: "arrowshape.down.circle.fill")
                         ShortCardView(fillColor: Color.red, title: "Expenses", value: "\(CurrencyUtils.centsToDollars(cents: viewModel.expenseTotal))", imageName: "arrowshape.up.circle.fill")
                     }
@@ -51,7 +68,7 @@ struct HomeView: View {
                     .padding(.top)
                     
                     HStack {
-                        PieChartView(data: Category.Default_Categories)
+                        PieChartView(data: viewModel.categories)
                     }
                     .padding()
                     

@@ -58,7 +58,7 @@ struct TransactionsView: View {
                             .padding()
                         
                         Button {
-                            
+                            viewModel.showAddTransactionSheet = true
                         } label: {
                             Text("Manually add transaction?")
                         }

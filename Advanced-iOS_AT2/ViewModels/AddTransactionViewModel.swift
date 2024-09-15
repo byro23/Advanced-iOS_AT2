@@ -12,7 +12,7 @@ class AddTransactionViewModel: ObservableObject {
     
     @Published var transactionName: String = ""
     @Published var transactionAmount: String = ""
-    @Published var selectedCategory: Category = Category(id: "", name: "")
+    @Published var selectedCategory: Category = Category(name: "")
     @Published var selectedType: TransactionType = .expense
     @Published var selectedDate: Date = Date()
     
