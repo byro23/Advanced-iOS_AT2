@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class CategoriesViewModel: ObservableObject {
     
     @Published var filterText: String = ""
@@ -26,6 +27,7 @@ class CategoriesViewModel: ObservableObject {
         
         do {
             categories = try await FirebaseManager.shared.fetchDocuments(uid: uid, collectionName: "categories", as: Category.self)
+            categories.sort {$0.name < $1.name}
             isLoading = false
         }
         catch {

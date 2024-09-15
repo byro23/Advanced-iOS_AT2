@@ -11,7 +11,7 @@ class AddCategoryViewModel: ObservableObject {
     
     @Published var categoryName: String = ""
     @Published var statusMessage: String = ""
-    var statusMessages: [String] = ["Added category successfully!", "Error adding new category. Please try again", "Category already exists."]
+    var statusMessages: [String] = ["Category added successfully!", "Error adding new category. Please try again", "Category already exists."]
     
     var validCategory: Bool {
         return categoryName.count > 0

@@ -18,6 +18,13 @@ struct TransactionsView: View {
         
         VStack {
             
+            Text("Your Transactions")
+                .font(.title)
+                .fontWeight(.semibold)
+                .padding(.top)
+                .padding(.horizontal)
+            
+            
             HStack {
                 Text("Search:")
                     .padding(.trailing, 10)
@@ -68,7 +75,6 @@ struct TransactionsView: View {
                 }
             }
         }
-        .navigationTitle("Transactions")
         .onAppear {
             Task {
                 await viewModel.fetchTransactions(uid: authViewModel.currentUser?.id ?? "")
@@ -83,6 +89,7 @@ struct TransactionsView: View {
         .onChange(of: viewModel.filterText) {
             viewModel.applyFilter()
         }
+        
     }
 }
 

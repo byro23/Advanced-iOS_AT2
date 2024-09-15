@@ -20,12 +20,18 @@ struct PieChartView: View {
                         angle: .value("Value", 1),
                         angularInset: 0.5
                     )
+                    .annotation(position: .overlay) {
+                        Text("\(CurrencyUtils.centsToDollars(cents: item.totalAmount))")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.white)
+                    }
                     .foregroundStyle(by: .value("Category", item.name))
                 }
                 .frame(width: 200, height: 200)
-                .chartLegend(.hidden)
+                //.chartLegend(.hidden)
                 
-                VStack(alignment: .leading) {
+                /*VStack(alignment: .leading) {
                     ForEach(data) { item in
                         HStack(alignment: .center) {
                             Circle()
@@ -36,7 +42,7 @@ struct PieChartView: View {
                         }
                     }
                 }
-                .padding(.leading)
+                .padding(.leading) */
             }
         }
         else {

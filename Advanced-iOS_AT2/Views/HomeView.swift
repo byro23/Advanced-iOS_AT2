@@ -83,13 +83,6 @@ struct HomeView: View {
                     
                     TransactionCardView(transactions: $viewModel.transactions, isFetching: $viewModel.isLoadingTransactions)
                     
-                    HStack {
-                        Text("My goals")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                        Spacer()
-                    }
-                    .padding()
                     
                     Spacer()
                     

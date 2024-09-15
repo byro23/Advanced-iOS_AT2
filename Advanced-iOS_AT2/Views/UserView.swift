@@ -46,8 +46,9 @@ struct UserView: View {
             CategoriesView()
                 .applyMintBackground()
                 .tabItem {
-                    Label(
+                    Label("Categories", systemImage: "folder.fill.badge.person.crop")
                 }
+                .tag(NavigationController.Tab.categories)
             
         }
     }

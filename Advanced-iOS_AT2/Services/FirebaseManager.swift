@@ -76,8 +76,8 @@ class FirebaseManager {
             let newCatRef = categoriesRef.document(category.id)
             // Dictionary representation
             let categoryData: [String:Any] = [
-                "id" : category.id,
-                "name" : category.name
+                "name" : category.name,
+                "totalAmount" : category.totalAmount
             ]
             
             batch.setData(categoryData, forDocument: newCatRef)

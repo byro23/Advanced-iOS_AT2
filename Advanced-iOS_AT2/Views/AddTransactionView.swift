@@ -82,6 +82,8 @@ struct AddTransactionView: View {
                                 transactions.append(newTransaction)
                                 
                                 transactions = transactions.sorted {$0.date > $1.date}
+                                
+                                isSheetShowing = false
                             }
                         }
                         .font(.headline)

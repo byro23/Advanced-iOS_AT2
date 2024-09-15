@@ -33,6 +33,7 @@ class HomeViewModel: ObservableObject {
             return
         }
         
+        // transactions = await FirebaseManager.shared.fetchDocuments(uid: <#T##String#>, collectionName: <#T##String#>, as: <#T##Decodable.Type#>)
         // Fetch transactions
         transactions = await FirebaseManager.shared.fetchTransactions(uid: uid)
         // Fetch categories
@@ -64,6 +65,11 @@ class HomeViewModel: ObservableObject {
         for transaction in self.transactions {
             if(transaction.type == .expense) {
                 expenses += transaction.amount
+                
+                if let index = categories.firstIndex(where: { $0.id == transaction.categoryId}) {
+                    categories[index].totalAmount += transaction.amount
+                    print(categories[index].totalAmount)
+                }
             }
             else {
                 income += transaction.amount

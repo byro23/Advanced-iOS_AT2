@@ -31,6 +31,7 @@ struct AddCategoryView: View {
                         
                         if let newCategory {
                             categories.append(newCategory)
+                            categories.sort {$0.name < $1.name}
                             selectedCategory = newCategory
                         }
                     }

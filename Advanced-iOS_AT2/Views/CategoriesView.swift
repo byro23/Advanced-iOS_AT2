@@ -15,16 +15,14 @@ struct CategoriesView: View {
     var body: some View {
         
         VStack {
-            HStack {
-                Text("Search:")
-                    .padding(.trailing, 10)
-                    .fontWeight(.semibold)
-                
-                TextField("Filter by category name", text: $viewModel.filterText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .font(.subheadline)
-            }
-            .padding()
+            
+            Text("Budgeting Categories")
+                .font(.title)
+                .fontWeight(.semibold)
+                .padding()
+            
+            AddCategoryView(categories: $viewModel.categories, selectedCategory: .constant(Category.Default_Categories[0]))
+                .padding(.horizontal)
             
             if(viewModel.isLoading) {
                 ProgressView()
@@ -51,8 +49,8 @@ struct CategoriesView: View {
                     
                 }
             }
+            .scrollContentBackground(.hidden)
         }
-        .navigationTitle("Categories")
         .onAppear {
             
             Task {

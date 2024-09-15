@@ -22,6 +22,7 @@ class NavigationController: ObservableObject {
         case home
         case pay
         case transactions
+        case categories
     }
     
     @Published var path = NavigationPath()
