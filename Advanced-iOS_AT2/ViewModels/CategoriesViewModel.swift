@@ -44,7 +44,8 @@ class CategoriesViewModel: ObservableObject {
             let category = categories[index]
             // Delete from Firestore
             do {
-                try await FirebaseManager.shared.deleteDocument(uid: uid, collectionName: "categories", documentId: category.id)
+                try await FirebaseManager.shared.deleteDocument(uid: uid, collectionName: "categories", documentId: category.name)
+                print("Category deleted successfully.")
             }
             catch {
                 print("Error deleting category: \(error.localizedDescription)")
